@@ -1,14 +1,18 @@
-h1. This is the data for my blog
+h1. 읽어주세요.
 
-It is automatically transformed by "Jekyll":http://github.com/mojombo/jekyll into a static site whenever I push this repository to GitHub.
+이 저장소는 github 블로그의 소스와 글 데이터로 구성되어있습니다. 
+github.com에서는 <사용자 ID>.github.com 이라는 이름을 가진 저장소를 만드는 것으로
+간단하게 <사용자 ID>.github.com 과 같은 블로그를 만들 수 있습니다. 
 
-I was tired of having my blog posts end up in a database off on some remote server. That is backwards. I've lost valuable posts that way. I want to author my posts locally in Textile or Markdown. My blog should be easily stylable and customizable any way I please. It should take care of creating a feed for me. And most of all, my site should be stored on GitHub so that I never lose data again.
+자세한 내용은 다음 링크를 참고해주세요:
+* "http://pages.github.com/":http://pages.github.com/
 
-h1. License
 
-The following directories and their contents are Copyright Tom Preston-Werner. You may not reuse anything therein without my permission:
+h1. 라이센스
+
+아래 디렉토리에 있는 파일들은 재사용하지 마세요. (제 글과 글에 쓰인 이미지들) :
 
 * _posts/
 * images/
 
-All other directories and files are MIT Licensed. Feel free to use the HTML and CSS as you please. If you do use them, a link back to http://github.com/mojombo/jekyll would be appreciated, but is not required.
+다른 디렉토리는 "MIT 라이센스":http://sungchi.mit-license.org/ 를 적용합니다. 마음대로 clone, fork 하세요.
