@@ -5,7 +5,8 @@ github.com에서는 <사용자 ID>.github.com 이라는 이름을 가진 저장�
 간단하게 <사용자 ID>.github.com 과 같은 블로그를 만들 수 있습니다. 
 
 자세한 내용은 다음 링크를 참고해주세요:
-* "http://pages.github.com/":http://pages.github.com/
+* "pages.github.com":http://pages.github.com/
+* "Spoqa 블로그 탄생비화":http://spoqa.github.com/2011/12/17/about-spoqa-blog-creation.html
 
 
 h1. 라이센스
