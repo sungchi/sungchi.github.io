@@ -196,3 +196,6 @@ ul.posts {
   #related h2 {
     margin-bottom: 1em;
   }
+
+/* Custom style */
+ul.posts span.fail { color:#666; font: 110% helvetica, arial, clean, sans-serif; }
