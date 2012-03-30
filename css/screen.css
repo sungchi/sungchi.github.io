@@ -199,3 +199,5 @@ ul.posts {
 
 /* Custom style */
 ul.posts span.fail { color:#666; font: 110% helvetica, arial, clean, sans-serif; }
+ul.posts li { font-family: 'NanumGothic'; }
+#post { font-family: 'NanumGothic'; }
