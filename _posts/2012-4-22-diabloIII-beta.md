@@ -7,7 +7,7 @@ title:  디아블로3 베타
 ================
 
 <p class="meta">2012년 4월 22일 - 안양</p>
-![Diablo 3 beta](/images/diabloIII-beta.png)
+![Diablo 3 beta](/images/DiabloIII-beta.png)
 
 디아블로 3 베타(북미 서버)를 가지고 주말동안 가지고 놀았다. 플레이 구간이 너무 짧아서 아직 이 게임에 대해 이야기하긴 이른 것 같지만 5월 15일 정식발매 되면 얘기 할 시간이 별로 없을 것 같아 시간날때 해두기로 했다. 
 
