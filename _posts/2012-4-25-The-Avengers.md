@@ -20,3 +20,5 @@ title:  어벤져스
 * 시트콤 빅뱅이론 시즌 중에 개봉했다면 무조건 어벤져스 이야기 나왔을 텐데 이번 주가 시즌 5 마지막회라서 아쉽게도 언급이 없을 듯
 
 * 유투브에서 유명했던 [Reality Hits You Hard Bro](http://www.youtube.com/watch?v=FCSBoOcGFFE) 아저씨가 카메오로 나온 것 같은데 다시한번 보면서 확인해야겠다.
+
+* 쿠키 영상에서 나온 캐릭터 정보: [링크](http://blog.daum.net/spekqj/13298935)(스포일러)
