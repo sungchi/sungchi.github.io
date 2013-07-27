@@ -5,7 +5,7 @@
 /*****************************************************************************/
 
 /* Global Reset */
-
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 * {
   margin: 0;
   padding: 0;
@@ -199,5 +199,5 @@ ul.posts {
 
 /* Custom style */
 ul.posts span.fail { color:#666; font: 110% helvetica, arial, clean, sans-serif; }
-ul.posts li .post-title { font-family: 'NanumGothicWeb'; }
-#post { font-family: 'NanumGothicWeb'; }
+ul.posts li .post-title { font-family: 'Nanum Gothic'; }
+#post { font-family: 'Nanum Gothic'; }
