@@ -16,4 +16,4 @@ title: 바이오쇼크 인피니트
 
 [BioShock Infinite Launch Trailer](http://youtu.be/uB9yYfKq4ZA)
 
-*"엘리자베스의 능력은 가지고 있는게 아니라 가지고 있지않아서 가능한 것"*
+"엘리자베스의 능력은 가지고 있는게 아니라 가지고 있지않아서 가능한 것"
