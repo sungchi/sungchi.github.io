@@ -1,11 +1,10 @@
 ---
 layout: post
 title:  어벤져스
+comments: true
+share: true
+tags: [영화, 마블]
 ---
-
-{{ page.title }}
-================
-
 <p class="meta">2012년 4월 25일 - 강남역</p>
 ![The Avengers](/images/avengers-movie.jpg)
 

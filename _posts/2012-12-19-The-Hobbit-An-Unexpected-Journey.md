@@ -1,11 +1,10 @@
 ---
 layout: post
 title: 호빗 뜻밖의 여정
+comments: true
+share: true
+tags: [영화, IMAX, 3D]
 ---
-
-{{ page.title }}
-================
-
 <p class="meta">2012년 12월 19일 - 왕십리</p>
 ![호빗](/images/The-Hobbit-An-Unexpected-Journey-IMAX-Poster-Bilbo.jpg)
 

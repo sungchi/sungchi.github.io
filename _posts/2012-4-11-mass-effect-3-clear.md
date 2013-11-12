@@ -1,11 +1,10 @@
 ---
 layout: post
 title:  매스 이펙트 3 클리어
+comments: true
+share: true
+tags: [게임]
 ---
-
-{{ page.title }}
-================
-
 <p class="meta">2012년 4월 11일 - 안양</p>
 ![mass effect 3](/images/MassEffect3-2012-04-11.png)
 

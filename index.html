@@ -1,24 +1,60 @@
 ---
-layout: default
-title: Sungchi's Blog
+layout: post-index
+title: Latest Posts
+description: "Describe this nonsense."
+tags: [Jekyll, theme, themes, responsive, blog, modern]
+image:
+  feature: star.jpg
 ---
 
-<div id="home">
-  <a name="blog"></a>
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a class="post-title" href="{{ post.url }}">{{ post.title }}</a></li>
+{% for post in paginator.posts %}
+<article class="hentry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    <div class="entry-meta"><span class="entry-date date published updated"><time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished"><a href="{{ site.url }}{{ post.url }}">{{ post.date | date: "%B %d, %Y" }}</a></time></span><span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name" class="fn"><a href="{{ site.url }}/about" title="About {{ site.owner.name }}" itemprop="url">{{ site.owner.name }}</a></span></span>{% if site.disqus_shortname and post.comments %}&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="{{ site.url }}{{ post.url }}#disqus_thread">Comment</a></span>{% endif %}</div><!-- /.entry-meta -->
+    {% if post.link %}
+      <h1 class="entry-title" itemprop="name"><a href="{{ site.url }}{{ post.url }}" rel="bookmark" itemprop="url" title="{{ post.title }}"><i class="icon-double-angle-right"></i></a> <a href="{{ post.link }}">{{ post.title }}</a></h1>
+    {% else %}
+      <h1 class="entry-title" itemprop="name"><a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}" itemprop="url">{{ post.title }}</a></h1>
+    {% endif %}
+  </header>
+  <div class="entry-content" itemprop="description">
+    {{ post.content }}
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+{% endfor %}
+
+<div class="pagination">
+  {% if paginator.previous_page %}
+    {% if paginator.previous_page == 1 %}
+      <a href="{{ site.url }}" class="btn">Previous</a>
+    {% else %}
+      <a href="{{ site.url }}/page{{ paginator.previous_page }}" class="btn">Previous</a>
+    {% endif %}
+  {% else %}
+    Previous
+  {% endif %}
+  <ul class="inline-list">
+    <li>
+      {% if paginator.page == 1 %}
+        <span class="current-page">1</span>
+      {% else %}
+        <a href="{{ site.url }}">1</a>
+      {% endif %}
+    </li>
+    {% for count in (2..paginator.total_pages) %}
+      <li>
+        {% if count == paginator.page %}
+          <span class="current-page">{{ count }}</span>
+        {% else %}
+          <a href="{{ site.url }}/page{{ count }}">{{ count }}</a>
+        {% endif %}
+      </li>
     {% endfor %}
   </ul>
-  <a name="project"></a>
-  <h1>Books, Project</h1>
-  <ul class="posts">
-	<li><span>02 Nov 2006</span> &raquo; <span class="fail post-title">adsense-ko.com (도메인 종료)</span></li>
-    <li><span>07 Feb 2007</span> &raquo; <span class="fail post-title">미드 커뮤니티 - tvshow.co.kr (망함)</span></li>
-	<li><span>03 Apr 2007</span> &raquo; <a class="post-title" href="http://www.yes24.com/24/goods/2540791">책 - Adsense 완전정복</a></li>
-	<li><span>27 Apr 2007</span> &raquo; <a class="post-title" href="http://www.youtube.com/watch?v=RBrm5vbXqvE">동영상 - 홍진호 헌정 iPod Ad</a></li>
-    <li><span>16 Dec 2008</span> &raquo; <a class="post-title" href="http://www.yes24.com/24/Goods/3218045">책 - Problogger (번역)</a></li>
-	<li><span>16 Mar 2011</span> &raquo; <a class="fail post-title" href="http://www.feed9.com">Feed9</a> → <a class="post-title" href="http://lo9.kr">lo9.kr</a></li>
-  </ul>
+  {% if paginator.next_page %}
+    <a href="{{ site.url }}/page{{ paginator.next_page }}" class="btn">Next</a>
+  {% else %}
+    Next
+  {% endif %}
+
 </div>

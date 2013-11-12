@@ -1,11 +1,10 @@
 ---
 layout: post
 title:  팅커 테일러 솔저 스파이
+comments: true
+share: true
+tags: [영화]
 ---
-
-{{ page.title }}
-================
-
 <p class="meta">2012년 3월 17일 - 안양</p>
 ![tinker tailor soldier spy](/images/ttss.jpg)
 

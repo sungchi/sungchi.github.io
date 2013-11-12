@@ -1,11 +1,10 @@
 ---
 layout: post
 title:  프로메테우스
+comments: true
+share: true
+tags: [영화, SF]
 ---
-
-{{ page.title }}
-================
-
 <p class="meta">2012년 6월 6일 - 강남역</p>
 ![Prometheus](/images/prometheus.jpg)
 

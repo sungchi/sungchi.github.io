@@ -1,11 +1,10 @@
 ---
 layout: post
 title:  건축학개론 
+comments: true
+share: true
+tags: [영화]
 ---
-
-{{ page.title }}
-================
-
 <p class="meta">2012년 3월 27일 - 강남역</p>
 ![architecture 101](/images/architecture101.jpg)
 

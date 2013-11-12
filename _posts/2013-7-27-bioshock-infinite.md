@@ -1,11 +1,10 @@
 ---
 layout: post
 title: 바이오쇼크 인피니트 
+comments: true
+share: true
+tags: [게임]
 ---
-
-{{ page.title }}
-================
-
 <p class="meta">2013년 7월 27일 - 안양</p>
 
 ![바이오쇼크 인피니트](/images/bioshock.png) 

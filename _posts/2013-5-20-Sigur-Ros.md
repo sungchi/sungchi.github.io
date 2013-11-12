@@ -1,11 +1,10 @@
 ---
 layout: post
 title: 두 공연과 하나의 티비쇼
+comments: true
+share: true
+tags: [공연, 미드]
 ---
-
-{{ page.title }}
-================
-
 <p class="meta">2013년 5월 20일 - 안양</p>
 
 ![월드 디제이 페스티벌 2013](/images/wdjf.png) 

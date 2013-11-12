@@ -1,11 +1,10 @@
 ---
 layout: post
 title:  디아블로3 만렙 소감 
+comments: true
+share: true
+tags: [게임, 블리자드]
 ---
-
-{{ page.title }}
-================
-
 <p class="meta">2012년 5월 20일 - 안양</p>
 ![Diablo 3 monk](/images/diabloIII-monk.png)
 

@@ -1,11 +1,10 @@
 ---
 layout: post
 title:  다크나이트 라이즈, 미드나잇 인 파리
+comments: true
+share: true
+tags: [영화]
 ---
-
-{{ page.title }}
-================
-
 <p class="meta">2012년 7월 23일</p>
 
 ![midnight in paris](/images/midnight_in_paris.jpg)

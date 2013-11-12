@@ -1,11 +1,10 @@
 ---
 layout: post
 title:  구글 앱 엔진 naked domain 사용하기 
+comments: true
+share: true
+tags: [개발, google app engine]
 ---
-
-{{ page.title }}
-================
-
 <p class="meta">2012년 4월 3일 - 잠원동</p>
 ![architecture 101](/images/google-apps-naked-domain.png)
 
