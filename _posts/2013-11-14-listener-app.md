@@ -7,7 +7,7 @@ tags: [개발, 스마트폰]
 ---
 <p class="meta">2013년 11월 14일 - 안양</p>
 
-<a href="https://appsto.re/us/L02fS.i" target="_blank"><img style="display: block;margin-left: auto;margin-right: auto;" src="/images/Icon-Small-50@2x.png"></a>
+<a href="https://itunes.apple.com/kr/app/listener-secret-board/id739732773" target="_blank"><img style="display: block;margin-left: auto;margin-right: auto;" src="/images/Icon-Small-50@2x.png"></a>
 
 ### 개발 
 
