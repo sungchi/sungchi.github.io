@@ -7,7 +7,7 @@ tags: [개발, 스마트폰]
 ---
 <p class="meta">2013년 11월 14일 - 안양</p>
 
-<a href="https://appsto.re/us/L02fS.i" target="_blank"><img src="/images/Icon-Small-50@2x.png"></a>
+<a href="https://appsto.re/us/L02fS.i" target="_blank"><img style="display: block;margin-left: auto;margin-right: auto;" src="/images/Icon-Small-50@2x.png"></a>
 
 ### 개발 
 
@@ -41,8 +41,10 @@ tags: [개발, 스마트폰]
 
 <img src="/images/moroder.png">
 
-앱을 유료로 한 이유는 별거 없다. 일단 개발자 등록비가 11만원이나 하고 앱 자체가 인터넷 기반이기 때문에 서버(구글 클라우드) 비용이 나갈 수도 있어서다. 두 번째 이유는 어느 정도 진입 장벽이 있어야 장난 글이 넘치는 걸 줄일 수 있다고 생각했다. 마지막으로 재미를 위해 만든 것이 유료앱으로 낼 수 있는 가장 큰 이유였다. 
+앱을 유료로 한 이유는 별거 없다. 일단 개발자 등록비가 11만원이나 하고 앱 자체가 인터넷 기반이기 때문에 서버(구글 클라우드) 비용이 나갈 수도 있어서다. 두 번째 이유는 어느 정도 진입 장벽이 있어야 장난 글이 넘치는 걸 줄일 수 있다고 생각했다. 마지막으로 재미를 위해 만든 것이 유료앱으로 낼 수 있는 가장 큰 이유였다.  
 
- 격려 말씀해주신 분들, 앱을 받아주신 분들 덕분에 오랜만에 새롭고 즐거운 경험이 되었다. 
+격려 말씀해주신 분들, 앱을 받아주신 분들 덕분에 오랜만에 새롭고 즐거운 경험이 되었다. 
+
+<a href="https://itunes.apple.com/kr/app/listener-secret-board/id739732773" target="_blank"><img style="display: block;margin-left: auto;margin-right: auto;" src="/images/Download_on_the_App_Store_Badge_KR_135x40.png"></a>
 
 (여기까지 읽어주신 분들 중에 이메일 주소 댓글로 적어주시는 선착순 다섯 분께 리딤코드를 보내드리도록 하겠습니다. 고맙습니다.)
