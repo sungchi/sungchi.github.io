@@ -23,6 +23,7 @@ twitter_username: sungchi
 github_username:  sungchi
 timezone:    Asia/Seoul
 future:      true
+google_analytics: true
 
 # Build settings
 # theme: minima
