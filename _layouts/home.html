@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<div class="home">
+
+  <h2>Posts</h2>
+  
+  <p>오래된 글일수록 창피하니까 보지 말아 주세요.</p>
+
+  <ul>{% for post in paginator.posts %}
+      <li>{{ post.date | date: "%m/%d/%Y" }} <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></li>
+    {% endfor %}
+  </ul>
+  
+  {% if paginator.total_pages > 1 %}
+  <div>
+      {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>&nbsp;&nbsp;
+      {% endif %}
+      {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+      {% endif %}
+  </div>
+  {% endif %}
+
+  <p>subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+
+</div>

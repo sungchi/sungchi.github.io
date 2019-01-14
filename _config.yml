@@ -1,65 +1,47 @@
-title:            plan9
-description:      반갑습니다.
-disqus_shortname: sungchi
-#Your site's domain goes here. Leave localhost server or blank when working locally.
-url:    http://plan9.kr              
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 
-# Owner/author information
-owner:
-  name:           sungchi
-  avatar:         avatar.jpg
-  bio:            "폭두직딩 성치<br> (19XX ~ 21XX)"
-  email:          sungchi9@gmail.com
-  # Social networking links used in footer. Update and remove as you like.
-  twitter:        sungchi
-  facebook:       sungchi
-  github:         sungchi
-  stackexchange:  
-  linkedin:       sungchi
-  instagram:      sungchi
-  flickr:         
-  tumblr:         
-  # For Google Authorship https://plus.google.com/authorship
-  google_plus:   
-
-# Background image to be tiled on all pages
-background: ps_neutral.png
-
-# Analytics and webmaster tools stuff goes here
-google_analytics:   UA-29680537-1
-google_verify:      
-# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
-bing_verify:         
-
-# Links to include in top navigation
-# For external links add external: true
-links:
-
-
-# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: sungchi Blog
+email: sungchi9@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  소셜미디어 덕분해 뜸해진 블로그입니다.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: https://plan9.kr  
+twitter_username: sungchi
+github_username:  sungchi
 timezone:    Asia/Seoul
 future:      true
-pygments:    true
-markdown:    kramdown
-# https://github.com/mojombo/jekyll/wiki/Permalinks
-permalink:   /:categories/:title
 
-# Amount of post to show on home page
+# Build settings
+# theme: minima
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+
 paginate: 5
-
-kramdown:
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  use_coderay: true
-
-  coderay:
-    coderay_line_numbers: nil
-    coderay_line_numbers_start: 1
-    coderay_tab_width: 4
-    coderay_bold_every: 10
-    coderay_css: class
-
-include: [".htaccess"]
-exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules"]
+permalink:   /:categories/:title
+# plugins: [jekyll-paginate]
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
