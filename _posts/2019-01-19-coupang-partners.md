@@ -22,16 +22,16 @@ tags: [쿠팡, 쇼핑몰]
 
 전부 우리 집에서 나 또는 아내, 그리고 고양이들이 잘 쓰고 만족하는 제품만 올렸고 한 제품 올리는데 한 번에 10분 정도 썼던 것 같다. 하루 10분 투자에 저 정도 수익이면 아주 괜찮은 편이라고 생각하고 장소나 시간의 제약이 없는 것도 좋다. 다만 페이스북, 트위터에만 올려서 하루만 지나도 노출이 크게 줄어든다는 점은 개선이 필요해 보인다. 판매한 물건들 목록도 올린다. 
 
-- 소니 블루투스 노이즈 캔슬링 헤드폰 https://coupa.ng/bgpmRD ( https://www.facebook.com/sungchi/posts/10218225636096114 )
-- 맥북 프로: https://coupa.ng/bgqT86 ( https://www.facebook.com/sungchi/posts/10218259516143094 )
-- 구글 크롬캐스트: https://coupa.ng/bgqxsY ( https://www.facebook.com/photo.php?fbid=10218252266721863&set=a.1447541872317&type=3 )
-- 고양이 숨숨매트: https://coupa.ng/bgpBxj ( https://www.facebook.com/sungchi/posts/10218244532168504 )
-- JMW 토네이도 드라이기: https://coupa.ng/bgrenp ( https://www.facebook.com/sungchi/posts/10218276449126408 )
-- 유니참 고양이 화장실: https://coupa.ng/bgq157  ( https://www.facebook.com/sungchi/videos/10218267019730679/ )
+- [소니 블루투스 노이즈 캔슬링 헤드폰](https://coupa.ng/bgpmRD) ([페이스북 소개글](https://www.facebook.com/sungchi/posts/10218225636096114 ))
+- [맥북 프로](https://coupa.ng/bgqT86) ([페이스북 소개글](https://www.facebook.com/sungchi/posts/10218259516143094))
+- [구글 크롬캐스트](https://coupa.ng/bgqxsY) ([페이스북 소개글](https://www.facebook.com/photo.php?fbid=10218252266721863&set=a.1447541872317&type=3))
+- [고양이 숨숨매트](https://coupa.ng/bgpBxj) ([페이스북 소개글](https://www.facebook.com/sungchi/posts/10218244532168504))
+- [JMW 토네이도 드라이기](https://coupa.ng/bgrenp) ([페이스북 소개글](https://www.facebook.com/sungchi/posts/10218276449126408))
+- [유니참 고양이 화장실](https://coupa.ng/bgq157)  ([페이스북 소개글](https://www.facebook.com/sungchi/videos/10218267019730679/))
 
 조회수나 판매량이 내 예상과는 많이 달랐다. 소니 헤드폰은 40만 원이 넘는데도 5개나 팔렸는데 수수료율은 낮았고 숨숨매트는 낮은 조회수에도 불구하고 제일 많이 팔리고 수수료도 가장 많이 받았다. 구매 후 실망해도 큰 문제가 안된다거나(숨숨매트) 평이 압도적으로 좋은(소니 헤드폰) 물건들이 잘 팔리고 편리해 보이지만 애매한 물건들(크롬캐스트, 드라이기)은 생각보다 안 팔렸다. 짧은 문장으로 구매 동기를 일으켜야 하는 소셜미디어에 잘 맞는 제품이 따로 있는 것 같다. 
 
 수익이 생기는 재미도 있고 사람들에게 좋은 물건을 소개하는 보람도 있어서 계속해볼 생각인데 올리는 방식은 고민해봐야 할 것 같다. github pages로 무료 페이지를 만들어 판매 방법을 테스트할 계획도 있다. 
 
 혹시 쿠팡 파트너스를 직접 해보실 분들은 아래 사이트를 방문하세요. 
-- https://partners.coupang.com (추천인 아이디:  AF7247906 )
+- [partners.coupang.com](https://partners.coupang.com) (추천인 아이디:  AF7247906 )
