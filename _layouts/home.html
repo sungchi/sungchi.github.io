@@ -6,7 +6,7 @@ layout: default
   <h2>Posts</h2>
   
   <p>오래된 글일수록 창피하니까 보지 말아 주세요.</p>
-  <p>???: <a href="/pangpang">쿠팡 할인 전자제품 TOP100</a></p>
+  <p><a href="/pangpang">쿠팡 할인 전자제품 TOP100</a>(??)</p>
 
   <ul>{% for post in paginator.posts %}
       <li>{{ post.date | date: "%m/%d/%Y" }} <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></li>
