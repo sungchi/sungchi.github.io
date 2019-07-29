@@ -3,10 +3,10 @@ layout: default
 ---
 <div class="home">
 
-  <h2>Posts</h2>
-  
-  <p>오래된 글일수록 창피하니까 보지 말아 주세요.</p>
-  <p><a href="https://pang2pang.github.io/">빠른 쿠팡 홈</a></p>
+  <h2>Sungchi Blog</h2>
+  <p>
+    다양한 분야를 꾸준히 공부하고 게임과 영상작품을 즐기는 사람입니다. 기술, 인간심리, 경제적 자유에 관심이 많습니다. 아내 덕분에 사회성이 발달하는 중이고 고양이들과 같이 살면서 다른 종과 교감하는 법을 배우고 있습니다.
+  </p>
 
   <ul>{% for post in paginator.posts %}
       <li>{{ post.date | date: "%m/%d/%Y" }} <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></li>
