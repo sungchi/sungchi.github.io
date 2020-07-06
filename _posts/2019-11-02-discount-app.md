@@ -21,4 +21,5 @@ tags: [개발,모바일앱,쿠팡]
 
 다 끝내고 나니 앱을 출시하는 것이 3년 전보다 더 쉬워졌다는 생각이 들었다. 간단한 아이디어라면 백엔드로 firebase를 쓰고 최신 안드로이드 개발환경에서 구현에만 집중해서 빠르게 앱을 만들 수 있다. 오랜만에 앱을 출시해보면서 번거로운 작업들로 인한 고통이 줄었다는 걸 확인했으니 앞으로 떠오르는 아이디어들을 여가시간에 계속 앱으로 찍어내야겠다. 지금은 개인이 인터넷으로 뭔가 시도해보기 아주 좋은 시절이다. 
 
-쿠팡 할인 전자제품 앱 보러 가기: [https://play.google.com/store/apps/details?id=com.sungchi.bumee](https://play.google.com/store/apps/details?id=com.sungchi.bumee)
+- 쿠팡 할인 전자제품 앱 보러 가기: [할인 전자제품 ( 쿠팡 비공식 )](https://play.google.com/store/apps/details?id=com.sungchi.bumee)
+- 좀 더 기능이 많은 iOS 버전: [할인 추적기 : 쿠팡 비공식 할인 전자제품, 신선식품](https://apps.apple.com/au/app/%ED%95%A0%EC%9D%B8-%EC%B6%94%EC%A0%81%EA%B8%B0-%EC%BF%A0%ED%8C%A1-%EB%B9%84%EA%B3%B5%EC%8B%9D-%ED%95%A0%EC%9D%B8-%EC%A0%84%EC%9E%90%EC%A0%9C%ED%92%88-%EC%8B%A0%EC%84%A0%EC%8B%9D%ED%92%88/id1487596415?l=ko)
