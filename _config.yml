@@ -32,7 +32,7 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
 
-paginate: 5
+paginate: 10
 permalink:   /:categories/:title
 # plugins: [jekyll-paginate]
 # Exclude from processing.
