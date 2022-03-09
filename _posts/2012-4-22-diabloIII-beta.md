@@ -4,6 +4,7 @@ title:  디아블로3 베타
 comments: true
 share: true
 tags: [게임, 블리자드]
+feature: DiabloIII-beta.png
 ---
 <p class="meta">2012년 4월 22일 - 안양</p>
 ![Diablo 3 beta](/images/DiabloIII-beta.png)
