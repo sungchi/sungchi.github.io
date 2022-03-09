@@ -4,6 +4,7 @@ title: 스마트키보드 챌린지 후기
 comments: true
 share: true
 tags: [개발, 머신러닝]
+feature: smart_keyboard.png
 ---
 <p class="meta">2018년 7월 27일</p>
 
