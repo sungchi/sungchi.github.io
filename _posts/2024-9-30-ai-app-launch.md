@@ -5,7 +5,7 @@ comments: true
 share: true
 tags: [데이팅,채팅,AI]
 feature: stranger-ai-card-0930.png
-description: 아내는 나에게 종종 이런 말을 했다. "ChatGPT는 계속 질문해도 다정하고 짜증도 내지 않아. 대체되지 않도록 조심해" 농담이지만 진심이 섞여있었다.
+description: 아내는 나에게 종종 이런 말을 했다. &quot;ChatGPT는 계속 질문해도 다정하고 짜증도 내지 않아. 대체되지 않도록 조심해&quot; 농담이지만 진심이 섞여있었다.
 ---
 GPT-4와 대화하면서 아내는 나에게 종종 이런 말을 했다. "ChatGPT는 계속 질문해도 다정하고 짜증도 내지 않아. 대체되지 않도록 조심해" 농담이지만 진심이 섞여있었다.
    
