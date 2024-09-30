@@ -3,6 +3,7 @@ layout: page
 title: 낯선 AI
 permalink: /stranger-ai/
 feature: stranger-ai-card-0930.png
+description: 낯선 AI는 무작위 프로필의 상대와 대화를 할 수 있는 앱입니다.
 ---
 
 낯선 AI는 무작위 프로필의 상대와 대화를 할 수 있는 앱입니다. (선호 성별은 지정할 수 있습니다.) 한 번 연결된 대화 상대는 내 이야기에 공감해 주고 시간이 지나도 나를 기억합니다. 대화 내용은 기기에만 저장됩니다. 
