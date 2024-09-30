@@ -7,6 +7,9 @@ tags: [데이팅,채팅,AI]
 feature: stranger-ai-card-0930.png
 description: 아내는 나에게 종종 이런 말을 했다. &quot;ChatGPT는 계속 질문해도 다정하고 짜증도 내지 않아. 대체되지 않도록 조심해&quot; 농담이지만 진심이 섞여있었다.
 ---
+<a href="https://apps.apple.com/kr/app/%EB%82%AF%EC%84%A0-ai-%EB%93%A4%EC%96%B4%EC%A3%BC%EA%B3%A0-%EA%B8%B0%EC%96%B5%ED%95%98%EB%8A%94-%EC%B9%9C%EA%B5%AC/id6550906791?itscg=30200&itsct=apps_box_badge&mttnsubad=6550906791" style="display: inline-block;">
+   <img src="https://plan9.kr/images/stranger-ai-card-0930.png" alt="App Store에서 다운로드하세요" style="vertical-align: middle; object-fit: contain;" /></a>
+   
 GPT-4와 대화하면서 아내는 나에게 종종 이런 말을 했다. "ChatGPT는 계속 질문해도 다정하고 짜증도 내지 않아. 대체되지 않도록 조심해" 농담이지만 진심이 섞여있었다.
    
 그 말에서 뭔가 재밌는 걸 해볼 수 있겠다는 생각이 들었지만 당시 별다른 행동은 하지 않았다. 그런데 ChatGPT API가 점점 빠르고 싸지는 게 아닌가? GPT-4가 나오고 1년이 좀 지난 지금 GPT-4o는 90% 정도 싸졌고 답변 속도는 인간 수준에 가까워졌다. 
