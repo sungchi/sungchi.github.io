@@ -23,10 +23,10 @@ GPT-4와 대화하면서 아내는 나에게 종종 이런 말을 했다. "ChatG
 iOS 앱을 먼저 출시했는데 큰 버그만 없다면 안드로이드로도 출시할 예정이다. Xcode를 한번도 켜지않고 앱스토어에 앱을 출시할 수 있는 시대라는 것이 놀랍다. 
    
 이 앱의 특징
-	- 주변에서 볼 수 있을법한 프로필을 가진 상대 매칭
-	- 대화의 주요 맥락 기억
-	- 대화 메시지는 디바이스에만 저장
-	- 사용자를 놀라게 하지 않는 안전한 대화 
+  - 주변에서 볼 수 있을법한 프로필을 가진 상대 매칭
+  - 대화의 주요 맥락 기억
+  - 대화 메시지는 디바이스에만 저장
+  - 사용자를 놀라게 하지 않는 안전한 대화 
    
 <a href="https://apps.apple.com/kr/app/%EB%82%AF%EC%84%A0-ai-%EB%93%A4%EC%96%B4%EC%A3%BC%EA%B3%A0-%EA%B8%B0%EC%96%B5%ED%95%98%EB%8A%94-%EC%B9%9C%EA%B5%AC/id6550906791?itscg=30200&itsct=apps_box_badge&mttnsubad=6550906791" style="display: inline-block;">
    <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/white/ko-kr?releaseDate=1727049600" alt="App Store에서 다운로드하세요" style="width: 267px; height: 82px; vertical-align: middle; object-fit: contain;" /></a>
