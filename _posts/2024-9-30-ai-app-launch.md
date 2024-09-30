@@ -27,4 +27,5 @@ iOS 앱을 먼저 출시했는데 큰 버그만 없다면 안드로이드로도 
    
 <a href="https://apps.apple.com/kr/app/%EB%82%AF%EC%84%A0-ai-%EB%93%A4%EC%96%B4%EC%A3%BC%EA%B3%A0-%EA%B8%B0%EC%96%B5%ED%95%98%EB%8A%94-%EC%B9%9C%EA%B5%AC/id6550906791?itscg=30200&itsct=apps_box_badge&mttnsubad=6550906791" style="display: inline-block;">
    <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/white/ko-kr?releaseDate=1727049600" alt="App Store에서 다운로드하세요" style="width: 267px; height: 82px; vertical-align: middle; object-fit: contain;" /></a>
+
 안드로이드 버전은 곧 출시됩니다.
