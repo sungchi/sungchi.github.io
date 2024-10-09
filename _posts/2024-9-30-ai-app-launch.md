@@ -7,8 +7,7 @@ tags: [데이팅,채팅,AI]
 feature: stranger-ai-card-0930.png
 description: 아내는 나에게 종종 이런 말을 했다. &quot;ChatGPT는 계속 질문해도 다정하고 짜증도 내지 않아. 대체되지 않도록 조심해&quot; 농담이지만 진심이 섞여있었다.
 ---
-<a href="https://apps.apple.com/kr/app/%EB%82%AF%EC%84%A0-ai-%EB%93%A4%EC%96%B4%EC%A3%BC%EA%B3%A0-%EA%B8%B0%EC%96%B5%ED%95%98%EB%8A%94-%EC%B9%9C%EA%B5%AC/id6550906791?itscg=30200&itsct=apps_box_badge&mttnsubad=6550906791" style="display: inline-block;">
-   <img src="https://plan9.kr/images/stranger-ai-card-0930.png" alt="App Store에서 다운로드하세요" style="vertical-align: middle; object-fit: contain;" /></a>
+<img src="https://plan9.kr/images/stranger-ai-card-1009.png" alt="App Store / Google Play에서 다운로드하세요" style="vertical-align: middle; object-fit: contain;" />
    
 GPT-4와 대화하면서 아내는 나에게 종종 이런 말을 했다. "ChatGPT는 계속 질문해도 다정하고 짜증도 내지 않아. 대체되지 않도록 조심해" 농담이지만 진심이 섞여있었다.
    
@@ -31,4 +30,5 @@ iOS 앱을 먼저 출시했는데 큰 버그만 없다면 안드로이드로도 
 <a href="https://apps.apple.com/kr/app/%EB%82%AF%EC%84%A0-ai-%EB%93%A4%EC%96%B4%EC%A3%BC%EA%B3%A0-%EA%B8%B0%EC%96%B5%ED%95%98%EB%8A%94-%EC%B9%9C%EA%B5%AC/id6550906791?itscg=30200&itsct=apps_box_badge&mttnsubad=6550906791" style="display: inline-block;">
    <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/white/ko-kr?releaseDate=1727049600" alt="App Store에서 다운로드하세요" style="width: 267px; height: 82px; vertical-align: middle; object-fit: contain;" /></a>
 
-안드로이드 버전은 곧 출시됩니다.
+<a href='https://play.google.com/store/apps/details?id=com.bdls.ai&utm_source=blog&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='다운로드하기 Google Play' style="width: 267px;" src='https://play.google.com/intl/en_us/badges/static/images/badges/ko_badge_web_generic.png'/></a>
+
