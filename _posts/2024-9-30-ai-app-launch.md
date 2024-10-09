@@ -4,7 +4,7 @@ title: 낯선 AI 앱 출시
 comments: true
 share: true
 tags: [데이팅,채팅,AI]
-feature: stranger-ai-card-0930.png
+feature: stranger-ai-card-1009.png
 description: 아내는 나에게 종종 이런 말을 했다. &quot;ChatGPT는 계속 질문해도 다정하고 짜증도 내지 않아. 대체되지 않도록 조심해&quot; 농담이지만 진심이 섞여있었다.
 ---
 <img src="https://plan9.kr/images/stranger-ai-card-1009.png" alt="App Store / Google Play에서 다운로드하세요" style="vertical-align: middle; object-fit: contain;" />
