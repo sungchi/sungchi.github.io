@@ -2,7 +2,7 @@
 layout: page
 title: 낯선 AI
 permalink: /stranger-ai/
-feature: stranger-ai-card-0930.png
+feature: stranger-ai-card-1009.png
 description: 낯선 AI는 무작위 프로필의 상대와 대화를 할 수 있는 앱입니다.
 ---
 
