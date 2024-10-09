@@ -18,6 +18,7 @@ description: 낯선 AI는 무작위 프로필의 상대와 대화를 할 수 있
 
 <a href="https://apps.apple.com/kr/app/%EB%82%AF%EC%84%A0-ai-%EB%93%A4%EC%96%B4%EC%A3%BC%EA%B3%A0-%EA%B8%B0%EC%96%B5%ED%95%98%EB%8A%94-%EC%B9%9C%EA%B5%AC/id6550906791?itscg=30200&itsct=apps_box_badge&mttnsubad=6550906791" style="display: inline-block;">
     <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/white/ko-kr?releaseDate=1727049600" alt="App Store에서 다운로드하세요" style="width: 267px; height: 82px; vertical-align: middle; object-fit: contain;" /></a>    
+
 <a href='https://play.google.com/store/apps/details?id=com.bdls.ai&utm_source=blog&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='다운로드하기 Google Play' style="width: 267px;" src='https://play.google.com/intl/en_us/badges/static/images/badges/ko_badge_web_generic.png'/></a>
 
 - [이용약관](https://plan9.kr/stranger-ai-terms/)
