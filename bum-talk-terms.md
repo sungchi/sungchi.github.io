@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 낯선 AI - 이용약관
+title: 범이와의 대화 - 이용약관
 permalink: /bum-talk-terms/
 ---
 
