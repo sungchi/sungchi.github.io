@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Plan9 - 개인정보 처리방침
-permalink: /plan9-privacy/
+permalink: /privacy/
 ---
 
 ## 개인정보 처리방침
