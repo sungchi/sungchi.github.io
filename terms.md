@@ -1,12 +1,10 @@
 ---
 layout: page
-title: Plan9 - 이용약관
+title: 이용약관
 permalink: /terms/
----
+--- 
 
-## 이용약관
-
-본 이용약관은 Plan9(이하 "서비스")의 이용 조건을 규정합니다.
+본 이용약관은 Sungchi Blog(이하 "서비스")의 이용 조건을 규정합니다.
 
 ### 1. 서비스 이용
 
