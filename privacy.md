@@ -1,10 +1,8 @@
 ---
 layout: page
-title: Plan9 - 개인정보 처리방침
+title: 개인정보 처리방침
 permalink: /privacy/
 ---
-
-## 개인정보 처리방침
 
 본 개인정보 보호정책은 BDLS Studio(이하 "당사")가 사용자의 개인정보를 수집, 사용, 공유하는 방식을 설명합니다.
 
