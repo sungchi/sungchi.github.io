@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Plan9 - 이용약관
-permalink: /stranger-ai-terms/
+permalink: /plan9-terms/
 ---
 
 ## 이용약관
