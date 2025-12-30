@@ -6,13 +6,25 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 GitHub Pages에서 호스팅되는 Jekyll 기반 개인 블로그 (plan9.kr / sungchi.github.io)
 
+## 환경 설정
+
+Ruby 3.1.6 필요 (rbenv으로 관리, `.ruby-version` 파일 참조)
+
+```bash
+# rbenv 초기화 (쉘 설정에 추가 권장)
+eval "$(rbenv init -)"
+
+# 또는 직접 경로 지정
+export PATH="$HOME/.rbenv/versions/3.1.6/bin:$PATH"
+```
+
 ## 명령어
 
 ```bash
 # 의존성 설치
 bundle install
 
-# 로컬 개발 서버 실행 (파일 변경 시 자동 리로드, _config.yml 제외)
+# 로컬 개발 서버 실행 (http://localhost:4000)
 bundle exec jekyll serve
 
 # 정적 사이트 빌드
