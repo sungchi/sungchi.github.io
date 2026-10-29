@@ -27,23 +27,6 @@
     return el;
   }
 
-  function icon(kind, className = '') {
-    const svg = svgNode('svg', { viewBox: '0 0 96 88', fill: 'none', 'aria-hidden': 'true' });
-    if (className) svg.setAttribute('class', className);
-    svg.append(svgNode('ellipse', { cx: 48, cy: 76, rx: 33, ry: 7, fill: '#edf2e6' }));
-    if (kind === 'error') {
-      svg.append(svgNode('rect', { x: 20, y: 13, width: 56, height: 57, rx: 12, fill: '#fcf3e5', stroke: '#e5cfb3' }));
-      svg.append(svgNode('path', { d: 'M48 29v16m0 9v1', stroke: 'currentColor', 'stroke-width': 3, 'stroke-linecap': 'round' }));
-    } else {
-      svg.append(svgNode('rect', { x: 21, y: 12, width: 53, height: 58, rx: 9, fill: '#f0f5e7', stroke: '#c3d4b1', transform: 'rotate(-8 47 41)' }));
-      svg.append(svgNode('rect', { x: 23, y: 17, width: 53, height: 58, rx: 9, fill: '#fff', stroke: '#a5bd8f', transform: 'rotate(5 49 46)' }));
-      svg.append(svgNode('path', { d: 'M36 17v10m26-8v10M33 36h32', stroke: '#99b087', 'stroke-width': 2, 'stroke-linecap': 'round' }));
-      svg.append(svgNode('path', { d: kind === 'empty' ? 'M38 53h20' : 'M38 47h8v9h13m0 0-6-6m6 6-6 6', stroke: 'currentColor', 'stroke-width': 2.5, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }));
-      svg.append(svgNode('path', { d: 'M79 16v8m-4-4h8M13 46v6m-3-3h6', stroke: '#b7ca9e', 'stroke-width': 1.5, 'stroke-linecap': 'round' }));
-    }
-    return svg;
-  }
-
   function readFilters() {
     const q = new URLSearchParams(location.search);
     const category = q.get('category') || 'all';
@@ -179,7 +162,6 @@
     const imageButton = node('button', 'product-image-button');
     imageButton.type = 'button';
     imageButton.setAttribute('aria-label', `${item.title}, 가격 기록 보기`);
-    imageButton.append(node('span', `product-rank${rank <= 3 ? ' top-rank' : ''}`, rank));
     addImage(imageButton, item);
     imageButton.addEventListener('click', () => openProduct(item));
     const info = node('div', 'product-info');
@@ -188,7 +170,7 @@
     const titleButton = node('button', '', item.title);
     titleButton.type = 'button';
     titleButton.addEventListener('click', () => openProduct(item));
-    heading.append(titleButton);
+    heading.append(node('span', 'product-rank', `${rank}. `), titleButton);
     const price = node('p', 'product-price', nf.format(Math.round(item.currentPrice)));
     price.setAttribute('aria-label', `최근 관측가 ${won(item.currentPrice)}`);
     price.append(node('small', '', '원'));
@@ -215,14 +197,7 @@
     state.expiryTimer = null;
     results.setAttribute('aria-busy', 'true');
     $('#refresh-button').disabled = true;
-    const grid = node('div', 'skeleton-grid');
-    grid.setAttribute('aria-hidden', 'true');
-    for (let i = 0; i < 4; i++) {
-      const card = node('div', 'skeleton-card');
-      card.append(node('div', 'skeleton-image'), node('div', 'skeleton-line'), node('div', 'skeleton-line'), node('div', 'skeleton-line short'));
-      grid.append(card);
-    }
-    results.replaceChildren(grid);
+    results.replaceChildren(node('p', '', '상품 목록을 불러오는 중입니다.'));
     $('#result-count').textContent = '—';
     announce('선택한 조건의 가격 기록을 불러오고 있습니다.');
   }
@@ -233,7 +208,6 @@
     const collecting = status.state === 'collecting';
     const tracked = Number.isSafeInteger(status.trackedProducts) && status.trackedProducts > 0 ? status.trackedProducts : 0;
     const panel = node('div', 'state-panel');
-    panel.append(icon(ready ? 'empty' : 'record', 'state-visual'));
     panel.append(node('h3', '', ready ? '조건에 맞는 가격 하락이 없어요' : collecting && tracked ? '비교할 가격 기록을 모으고 있어요' : '가격 기록을 준비하고 있어요'));
     panel.append(node('p', '', ready ? `${state.filters.period}일 전 기록과 비교할 수 있고 가격이 내려간 상품이 아직 없어요. 다른 기간이나 카테고리도 살펴보세요.` : '이전 날짜의 기록이 쌓이면 가격이 내려간 상품을 보여드립니다.'));
     if (tracked) {
@@ -256,7 +230,7 @@
     $('#result-count').textContent = '—';
     $('#update-label').textContent = '가격 정보를 다시 확인해 주세요';
     const panel = node('div', 'state-panel error');
-    panel.append(icon('error', 'state-visual'), node('h3', '', '가격 정보를 불러오지 못했어요'), node('p', '', '잠시 후 다시 불러와 주세요.'));
+    panel.append(node('h3', '', '가격 정보를 불러오지 못했어요'), node('p', '', '잠시 후 다시 불러와 주세요.'));
     const actions = node('div', 'state-actions');
     const retry = node('button', 'text-button', '다시 불러오기 ↻');
     retry.type = 'button';
