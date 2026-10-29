@@ -157,7 +157,7 @@
     container.append(img);
   }
 
-  function productCard(item, rank) {
+  function productCard(item) {
     const article = node('article', 'product-card');
     const imageButton = node('button', 'product-image-button');
     imageButton.type = 'button';
@@ -170,7 +170,7 @@
     const titleButton = node('button', '', item.title);
     titleButton.type = 'button';
     titleButton.addEventListener('click', () => openProduct(item));
-    heading.append(node('span', 'product-rank', `${rank}. `), titleButton);
+    heading.append(titleButton);
     const price = node('p', 'product-price', nf.format(Math.round(item.currentPrice)));
     price.setAttribute('aria-label', `최근 관측가 ${won(item.currentPrice)}`);
     price.append(node('small', '', '원'));
@@ -259,7 +259,7 @@
     $('#update-label').textContent = last && Number.isFinite(Date.parse(last)) ? `마지막 기록 ${timeLabel(last)} · 한국시간` : '비교를 위한 가격 기록 준비 중';
     if (state.items.length) {
       const grid = node('div', 'product-grid');
-      state.items.forEach((item, index) => grid.append(productCard(item, index + 1)));
+      state.items.forEach(item => grid.append(productCard(item)));
       results.replaceChildren(grid);
     } else renderEmpty();
     announce(`${state.filters.period}일 전 기록 대비 ${state.filters.sort === 'rate' ? '하락률' : '하락 금액'}순, ${state.items.length}개 상품을 표시합니다.`);

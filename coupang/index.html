@@ -24,9 +24,9 @@
   <link rel="icon" href="./assets/favicon-32.png?v=15b9116edb26" type="image/png" sizes="32x32">
   <link rel="icon" href="./assets/favicon.svg?v=d56974533d70" type="image/svg+xml" sizes="any">
   <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png?v=1cfd6a404dcf" sizes="180x180">
-  <link rel="stylesheet" href="./styles.css?v=8f09271b01c0">
+  <link rel="stylesheet" href="./styles.css?v=82ccc879c8af">
   <script src="./config.js" defer></script>
-  <script src="./app.js?v=6080c4df27a6" defer></script>
+  <script src="./app.js?v=56ce9a2b0548" defer></script>
   <title>쿠팡 가격 변동·하락률 비교 | 빠른 쿠팡 홈</title>
 </head>
 <body>
@@ -50,7 +50,7 @@
       <div class="section-heading"><h1 id="results-title" itemprop="name">쿠팡 가격 하락 <span id="result-count" class="result-count" aria-label="표시 상품 수">—</span></h1><button type="button" class="icon-button refresh-button" id="refresh-button" aria-label="가격 목록 새로고침" title="가격 목록 새로고침">새로고침</button></div>
 
       <div class="filters" aria-label="가격 목록 조건">
-        <fieldset class="period-filter"><legend>비교 기간</legend><div class="segmented-control" id="period-control"><button type="button" data-period="1" aria-pressed="true">1일 전</button><button type="button" data-period="7" aria-pressed="false">7일 전</button><button type="button" data-period="30" aria-pressed="false">30일 전</button></div></fieldset>
+        <fieldset class="period-filter"><legend class="sr-only">비교 기간</legend><div class="segmented-control" id="period-control"><button type="button" data-period="1" aria-pressed="true">1일 전</button><button type="button" data-period="7" aria-pressed="false">7일 전</button><button type="button" data-period="30" aria-pressed="false">30일 전</button></div></fieldset>
         <div class="filter-right"><label class="category-filter" for="category-select"><span class="sr-only">카테고리</span><select id="category-select"><option value="all">전체 카테고리</option></select></label><fieldset class="sort-filter"><legend class="sr-only">정렬 기준</legend><button type="button" data-sort="rate" aria-pressed="true">하락률순</button><span aria-hidden="true"></span><button type="button" data-sort="amount" aria-pressed="false">하락 금액순</button></fieldset></div>
       </div>
       <div class="results-description"><p id="filter-description">1일 전 대비 · 하락률순</p><span>최대 100개</span></div>

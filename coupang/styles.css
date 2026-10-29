@@ -1,4 +1,4 @@
-/* Native controls and document flow; CSS only for readable product layout. */
+/* Plain document flow with lightweight filters and readable product text. */
 :root {
   color-scheme:light;
   font:16px/1.6 system-ui,-apple-system,'Apple SD Gothic Neo',sans-serif;
@@ -24,22 +24,26 @@ button:disabled { cursor:wait }
 .header-inner,.results-description { justify-content:space-between }
 .brand { display:inline-flex; align-items:center; gap:.5rem; color:inherit; font-size:1.25rem; font-weight:700; text-decoration:none }
 .brand-mark,.brand-mark img { display:block; width:40px; height:40px }
+.header-nav a { color:#555; text-decoration:none; font-size:.875rem }
 .header-nav a+a { margin-left:1rem }
 .section-heading { margin-top:1.25rem }
 .section-heading h1 { margin:.25rem 0; font-size:1.5rem }
 .result-count { font-size:1rem; font-weight:400; color:#555 }
-.refresh-button { margin-left:auto }
-.filters { align-items:end; margin:1rem 0 }
+.refresh-button { margin-left:auto; border:0; background:none; color:#555; font-size:.875rem; min-height:40px }
+.filters { justify-content:space-between; margin:1.25rem 0 .75rem; padding-bottom:.75rem; border-bottom:1px solid #e5e5e5 }
+.filter-right,.category-filter { min-width:0; max-width:100% }
 fieldset { border:0; margin:0; padding:0 }
 legend { margin-bottom:.3rem }
-.segmented-control,.sort-filter { gap:.4rem }
-button[aria-pressed=true] { font-weight:700; background:#ddd }
-.category-filter select { max-width:100%; padding:.3rem }
+.segmented-control,.sort-filter { gap:1rem }
+.filters button { padding:.4rem .15rem; min-height:44px; border:0; border-bottom:2px solid transparent; border-radius:0; background:none; color:#555 }
+.filters button[aria-pressed=true] { color:#111; font-weight:700; border-bottom-color:#111 }
+.filters button:hover { color:#111 }
+.category-filter select { max-width:100%; min-height:40px; padding:.3rem .5rem; border:1px solid #ddd; border-radius:4px; background:#fff; color:#333 }
 .sort-filter>span { display:none }
 .results-description,.update-label,.list-footnote,.product-category,.compare-period,.product-date,.detail-category,.detail-dates,.detail-observed,.chart-caption,.affiliate-disclosure,.footer-notice { color:#555; font-size:.875rem }
 .results-description { margin:1rem 0 }
 .results-description p { margin:0 }
-.product-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:1.5rem 1rem }
+.product-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:1.75rem 1.25rem }
 .product-card { min-width:0 }
 .product-image-button { display:block; width:100%; padding:0; border:0; background:none }
 .product-image-button img { display:block; width:100%; height:150px }
@@ -47,14 +51,15 @@ button[aria-pressed=true] { font-weight:700; background:#ddd }
 .image-placeholder svg { width:36px; height:36px }
 .product-info p { margin:.4rem 0 }
 .product-category { margin-top:.5rem!important }
-.product-title { display:flex; align-items:baseline; gap:.3rem; margin:.4rem 0; font-size:1rem; font-weight:400; overflow-wrap:anywhere }
-.product-title button,.record-link { border:0; padding:0; background:none; color:#0645ad; text-decoration:underline; text-align:left }
-.product-title button { font:inherit; min-width:0 }
-.product-rank { color:#555; white-space:nowrap; flex-shrink:0 }
-.product-price { font-size:1.25rem; font-weight:700; font-variant-numeric:tabular-nums }
+.product-title { margin:.4rem 0; font-size:1.125rem; line-height:1.55; font-weight:500; overflow-wrap:anywhere }
+.product-title button,.record-link { border:0; padding:0; background:none; text-align:left }
+.product-title button { min-width:0; max-width:100%; font:inherit; color:#111; text-decoration:none }
+.product-title button:hover { color:#a3261b }
+.record-link { color:#0645ad; text-decoration:underline }
+.product-price { font-size:1.375rem; font-weight:700; font-variant-numeric:tabular-nums }
 .product-price small { font-size:1rem; font-weight:400 }
 .drop-values { color:#a3261b }
-.drop-values strong { font-size:1.1rem }
+.drop-values strong { font-size:1.25rem }
 .drop-values span { margin-left:.5rem; white-space:nowrap }
 .product-date { display:flex; flex-wrap:wrap; align-items:center; gap:.4rem 1rem }
 .record-link { font-size:inherit; min-height:36px }
@@ -74,7 +79,7 @@ button[aria-pressed=true] { font-weight:700; background:#ddd }
 .detail-top>div:last-child { min-width:0 }
 .detail-image { flex:0 0 5rem }
 .detail-image img,.detail-image .image-placeholder { width:5rem; height:5rem }
-.detail-title { font-size:1.1rem; margin:.4rem 0; overflow-wrap:anywhere }
+.detail-title { font-size:1.125rem; margin:.4rem 0; overflow-wrap:anywhere }
 .detail-category,.detail-dates { margin:.4rem 0 }
 .comparison-box { display:flex; flex-wrap:wrap; gap:1rem; margin:1.5rem 0 }
 .comparison-box>div { display:grid; flex:1 1 10rem; gap:.2rem }
