@@ -23,7 +23,7 @@ button:disabled { cursor:wait }
 }
 .header-inner,.results-description { justify-content:space-between }
 .brand { display:inline-flex; align-items:center; gap:.5rem; color:inherit; font-size:1.25rem; font-weight:700; text-decoration:none }
-.brand-mark,.brand-mark img { display:block; width:32px; height:32px }
+.brand-mark,.brand-mark img { display:block; width:40px; height:40px }
 .header-nav a+a { margin-left:1rem }
 .section-heading { margin-top:1.25rem }
 .section-heading h1 { margin:.25rem 0; font-size:1.5rem }
