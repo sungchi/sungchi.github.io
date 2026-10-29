@@ -1,19 +1,18 @@
 :root {
-  --ink:#1c302b;
-  --green:#164e3f;
-  --green-dark:#103e32;
-  --muted:#65705f;
-  --line:#dfe5dd;
-  --paper:#f8f9f5;
-  --cream:#f1f3e9;
-  --lime:#e6f3ae;
-  --white:#fff;
-  --red:#bd4b2e;
-  --shadow:0 12px 36px #193d2b09;
-  font-family:'Noto Sans KR',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',sans-serif;
+  --ink:#111111;
+  --muted:#555555;
+  --line:#d0d0d0;
+  --paper:#ffffff;
+  --soft:#f5f5f5;
+  --white:#ffffff;
+  --action:#ffd600;
+  --red:#b33124;
+  --action-shadow:3px 3px 0 var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',sans-serif;
   color:var(--ink);
   background:var(--paper);
-  font-synthesis:none
+  font-synthesis:none;
+  color-scheme:light
 }
 * {
   box-sizing:border-box
@@ -42,7 +41,7 @@ a {
   text-decoration:none
 }
 button:focus-visible,a:focus-visible,select:focus-visible,summary:focus-visible {
-  outline:3px solid #397a5d;
+  outline:3px solid var(--ink);
   outline-offset:4px
 }
 svg {
@@ -91,8 +90,8 @@ button {
   top:-70px;
   left:20px;
   z-index:100;
-  background:var(--green);
-  color:#fff;
+  background:var(--ink);
+  color:var(--white);
   padding:15px;
   border-radius:8px
 }
@@ -100,7 +99,7 @@ button {
   top:10px
 }
 .site-header {
-  background:#fff;
+  background:var(--white);
   border-bottom:1px solid var(--line)
 }
 .header-inner {
@@ -119,33 +118,31 @@ button {
   white-space:nowrap
 }
 .brand-mark {
-  width:39px;
-  height:39px;
+  width:32px;
+  height:32px;
   display:grid;
   place-items:center;
-  border-radius:12px;
-  background:var(--green);
-  color:var(--lime)
+  color:var(--ink)
 }
 .brand-mark svg {
   width:30px;
   height:30px
 }
 .brand-dot {
-  color:#65874f
+  color:var(--muted)
 }
 .header-nav {
   display:flex;
   gap:30px;
   font-size:13px;
   font-weight:600;
-  color:#53635b
+  color:var(--muted)
 }
 .header-nav a {
   padding:12px 0
 }
 .header-nav a:hover {
-  color:var(--green)
+  color:var(--ink)
 }
 .header-nav span {
   padding-left:5px
@@ -155,7 +152,7 @@ button {
   display:flex;
   gap:8px;
   align-items:center;
-  font-size:11px;
+  font-size:12px;
   color:var(--muted);
   white-space:nowrap
 }
@@ -164,7 +161,7 @@ button {
   height:6px;
   display:inline-block;
   border-radius:50%;
-  background:#69845c
+  background:var(--soft)
 }
 .hero {
   display:grid;
@@ -175,10 +172,10 @@ button {
   padding-bottom:65px
 }
 .eyebrow {
-  font-size:10px;
+  font-size:12px;
   letter-spacing:2px;
   font-weight:700;
-  color:#68806d
+  color:var(--muted)
 }
 .hero .eyebrow {
   display:flex;
@@ -189,7 +186,7 @@ button {
 .tiny-line {
   width:22px;
   height:1px;
-  background:#8aa274
+  background:var(--soft)
 }
 .hero h1 {
   font-size:45px;
@@ -198,7 +195,7 @@ button {
   letter-spacing:-2.2px
 }
 .hero h1 span {
-  color:var(--green)
+  color:var(--ink)
 }
 .hero-description {
   color:var(--muted);
@@ -209,145 +206,46 @@ button {
 }
 .hero-link {
   display:inline-flex;
-  gap:27px;
   align-items:center;
-  font-size:12px;
-  font-weight:700;
+  gap:24px;
+  min-height:48px;
+  padding:12px 20px;
   margin-top:29px;
-  border-bottom:1px solid #8caa91;
-  padding:0 0 7px
+  font-size:14px;
+  font-weight:750
 }
 .hero-link span {
   font-size:19px;
   font-weight:400
 }
-.journal-panel {
-  background:var(--green);
-  color:#f6f8e9;
-  border-radius:20px;
-  padding:25px 25px 22px;
-  position:relative;
-  overflow:hidden;
-  min-height:290px;
-  box-shadow:0 10px 28px #164e3f10
-}
-.journal-top {
-  display:flex;
-  align-items:center;
-  justify-content:space-between
-}
-.journal-label {
-  font-size:11px;
-  letter-spacing:.2px;
-  color:#d4e1ca
-}
-.journal-icon {
-  font-size:24px;
-  color:var(--lime);
-  line-height:1
-}
-.period-illustration {
-  height:160px;
-  position:relative;
-  margin:12px 0 8px
-}
-.paper-card {
-  position:absolute;
-  width:103px;
-  height:124px;
-  top:17px;
-  left:86px;
-  border-radius:9px;
-  padding:15px 12px;
-  color:var(--green);
-  background:#f5f4e8;
-  box-shadow:0 7px 18px #0c2e342b;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:6px
-}
-.paper-card>span {
-  font-size:9px;
-  font-weight:500;
-  white-space:nowrap
-}
-.paper-card b {
-  font-size:45px;
-  font-weight:500;
-  letter-spacing:-3px;
-  line-height:1.15
-}
-.paper-card b span {
-  font-size:12px;
-  letter-spacing:0;
-  margin-left:4px
-}
-.paper-card i {
-  font-size:6px;
-  font-style:normal;
-  letter-spacing:1px;
-  color:#6d826c;
-  margin-top:4px
-}
-.paper-card-back {
-  transform:rotate(15deg);
-  left:154px;
-  top:26px;
-  background:#c6d7b7;
-  color:#3c6444;
-  z-index:1
-}
-.paper-card-middle {
-  transform:rotate(-14deg);
-  left:24px;
-  top:26px;
-  background:#e4edbd;
-  z-index:2
-}
-.paper-card-front {
-  z-index:3;
-  transform:rotate(2deg)
-}
-.journal-bottom {
-  border-top:1px solid #ffffff24;
-  padding-top:17px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  color:#c3d5c4;
-  font-size:10px;
-  line-height:1.8
-}
-.journal-bottom strong {
-  font-weight:500;
-  color:#f5f6e7
-}
-.journal-seal {
-  border:1px solid #93ad73;
-  border-radius:50%;
-  width:42px;
-  height:42px;
-  display:grid;
-  place-content:center;
-  text-align:center;
-  color:var(--lime);
-  font-size:9px;
-  line-height:1.5;
-  transform:rotate(8deg)
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .summary-strip {
   display:flex;
   align-items:center;
   gap:44px;
-  padding:22px 27px;
-  background:#eef1e7;
-  border:1px solid #e3e8da;
-  border-radius:12px
+  padding:24px 0;
+  background:var(--white);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line)
 }
 .summary-strip>div {
   padding-right:44px;
-  border-right:1px solid #d7dfd1;
+  border-right:1px solid var(--line);
   display:flex;
   flex-direction:column;
   gap:7px
@@ -357,8 +255,8 @@ button {
   padding-right:0
 }
 .summary-label {
-  font-size:10px;
-  color:#798576
+  font-size:12px;
+  color:var(--muted)
 }
 .summary-strip strong {
   font-weight:500;
@@ -370,7 +268,7 @@ button {
 }
 .summary-about {
   margin-left:auto;
-  color:#6c7e63;
+  color:var(--muted);
   padding:8px
 }
 .prices-section {
@@ -384,7 +282,7 @@ button {
   gap:12px
 }
 .update-label {
-  font-size:10px;
+  font-size:12px;
   color:var(--muted);
   text-align:right
 }
@@ -405,31 +303,28 @@ button {
 .result-count {
   font-size:12px;
   letter-spacing:0;
-  background:#e9eee3;
-  color:#5f7654;
+  background:var(--soft);
+  color:var(--muted);
   padding:3px 8px;
   border-radius:6px;
   min-width:26px;
   text-align:center
 }
 .icon-button {
-  width:40px;
-  height:40px;
-  border:1px solid var(--line);
-  border-radius:50%;
+  width:44px;
+  height:44px;
   display:grid;
   place-items:center;
-  color:#6b7e70;
-  background:var(--white)
+  color:var(--muted);
+  background:transparent;
+  border-radius:2px
 }
 .icon-button:hover {
-  border-color:#8ba28f;
-  background:#f1f5eb
+  background:var(--soft);
+  color:var(--ink)
 }
 .refresh-button {
-  margin-left:auto;
-  width:34px;
-  height:34px
+  margin-left:auto
 }
 .refresh-button[disabled] svg {
   animation:rotate 1.4s linear infinite
@@ -448,35 +343,36 @@ button {
   border-bottom:1px solid var(--line)
 }
 .period-filter legend {
-  font-size:10px;
+  font-size:12px;
   color:var(--muted);
   margin-bottom:9px
 }
 .segmented-control {
   display:flex;
-  gap:5px;
-  background:#eaf0e5;
-  border-radius:9px;
-  padding:4px
+  gap:10px;
+  padding:0 3px 3px 0;
+  background:var(--white)
 }
 .segmented-control button {
-  font-size:12px;
-  font-weight:600;
-  min-height:39px;
+  min-height:44px;
   min-width:83px;
-  padding:8px 16px;
-  border-radius:6px;
-  color:#5a6e50;
-  transition:background .15s,color .15s
+  padding:8px 18px;
+  font-size:14px;
+  font-weight:700;
+  border:2px solid transparent;
+  border-radius:2px;
+  color:var(--muted);
+  transition:background 120ms ease,transform 120ms ease,box-shadow 120ms ease
 }
 .segmented-control button[aria-pressed=true] {
-  color:#fff;
-  background:var(--green);
-  box-shadow:0 2px 5px #133d2220
+  color:var(--ink);
+  background:var(--action);
+  border-color:var(--ink);
+  box-shadow:var(--action-shadow)
 }
 .segmented-control button:not([aria-pressed=true]):hover {
-  background:#dfe8d8;
-  color:var(--green)
+  background:var(--soft);
+  color:var(--ink)
 }
 .filter-right {
   display:flex;
@@ -492,8 +388,8 @@ button {
   border:1px solid var(--line);
   background:white;
   padding:0 13px;
-  border-radius:8px;
-  color:#60745e
+  border-radius:2px;
+  color:var(--muted)
 }
 .category-filter select {
   border:0;
@@ -501,7 +397,7 @@ button {
   font-size:12px;
   max-width:190px;
   background:transparent;
-  color:#3a4f42;
+  color:var(--muted);
   padding:5px 21px 5px 0;
   cursor:pointer
 }
@@ -515,13 +411,13 @@ button {
   white-space:nowrap
 }
 .sort-filter button {
-  font-size:11px;
-  color:#7a8579;
+  font-size:12px;
+  color:var(--muted);
   min-height:44px;
   padding:6px 0
 }
 .sort-filter button[aria-pressed=true] {
-  color:var(--green);
+  color:var(--ink);
   font-weight:800
 }
 .sort-filter button[aria-pressed=true]::before {
@@ -531,7 +427,7 @@ button {
 .sort-filter>span {
   height:11px;
   width:1px;
-  background:#d7dfd2
+  background:var(--soft)
 }
 .results-description {
   display:flex;
@@ -539,12 +435,12 @@ button {
   align-items:center;
   gap:16px;
   margin:17px 0;
-  color:#72816e;
-  font-size:10px
+  color:var(--muted);
+  font-size:12px
 }
 .results-description>span {
   white-space:nowrap;
-  color:#899483
+  color:var(--muted)
 }
 .product-grid {
   display:grid;
@@ -552,16 +448,15 @@ button {
   gap:21px
 }
 .product-card {
-  border:1px solid #e1e6dd;
-  border-radius:12px;
-  background:#fff;
+  border:1px solid var(--line);
+  border-radius:4px;
+  background:var(--white);
   overflow:hidden;
   position:relative;
-  transition:transform .18s,box-shadow .18s
+  transition:border-color 120ms ease
 }
 .product-card:hover {
-  transform:translateY(-3px);
-  box-shadow:var(--shadow)
+  border-color:var(--ink)
 }
 .product-image-button {
   width:100%;
@@ -569,7 +464,7 @@ button {
   aspect-ratio:1.18;
   display:grid;
   place-items:center;
-  background:#f3f5ef;
+  background:var(--soft);
   overflow:hidden;
   position:relative
 }
@@ -587,23 +482,23 @@ button {
   width:26px;
   height:26px;
   border-radius:6px;
-  background:#fff;
-  color:#557145;
+  background:var(--white);
+  color:var(--muted);
   display:grid;
   place-content:center;
-  font-size:11px;
+  font-size:12px;
   font-weight:700
 }
 .product-rank.top-rank {
-  background:var(--green);
-  color:var(--lime)
+  background:var(--ink);
+  color:var(--white)
 }
 .image-placeholder {
   display:grid;
   place-items:center;
-  color:#64725d;
+  color:var(--muted);
   gap:7px;
-  font-size:10px
+  font-size:12px
 }
 .image-placeholder svg {
   width:45px;
@@ -613,8 +508,8 @@ button {
   padding:17px 17px 16px
 }
 .product-category {
-  font-size:9px;
-  color:#899480;
+  font-size:12px;
+  color:var(--muted);
   margin-bottom:7px
 }
 .product-title {
@@ -642,7 +537,7 @@ button {
   margin-top:16px
 }
 .product-price small {
-  font-size:11px;
+  font-size:12px;
   font-weight:500;
   margin-left:2px
 }
@@ -652,7 +547,7 @@ button {
   gap:7px;
   flex-wrap:wrap;
   margin-top:7px;
-  font-size:10px;
+  font-size:12px;
   color:var(--red)
 }
 .drop-values strong {
@@ -660,31 +555,30 @@ button {
   font-weight:700
 }
 .compare-period {
-  font-size:9px;
-  color:#86917e;
+  font-size:12px;
+  color:var(--muted);
   margin-top:9px
 }
 .product-date {
-  border-top:1px solid #edf0e8;
+  border-top:1px solid var(--line);
   padding-top:12px;
   margin-top:13px;
-  font-size:9px;
-  color:#7e8b77;
+  font-size:12px;
+  color:var(--muted);
   display:flex;
   justify-content:space-between;
   gap:6px
 }
 .record-link {
-  font-size:9px;
+  font-size:12px;
   font-weight:600;
-  color:var(--green);
+  color:var(--ink);
   padding:0;
   white-space:nowrap
 }
 .state-panel {
-  background:white;
-  border:1px solid var(--line);
-  border-radius:13px;
+  background:var(--white);
+  border-block:1px solid var(--line);
   padding:43px 25px 37px;
   text-align:center;
   min-height:330px;
@@ -697,11 +591,11 @@ button {
   width:93px;
   height:86px;
   margin-bottom:18px;
-  color:var(--green)
+  color:var(--ink)
 }
 .state-eyebrow {
-  color:#8b9b7d;
-  font-size:9px;
+  color:var(--muted);
+  font-size:12px;
   letter-spacing:1.8px;
   font-weight:700;
   margin-bottom:9px
@@ -715,7 +609,7 @@ button {
 }
 .state-panel p {
   font-size:12px;
-  color:#829078;
+  color:var(--muted);
   line-height:1.9;
   max-width:470px;
   word-break:keep-all
@@ -725,9 +619,9 @@ button {
   gap:8px;
   align-items:center;
   margin-top:22px;
-  font-size:10px!important;
-  color:#587248!important;
-  background:#f4f7ee;
+  font-size:12px!important;
+  color:var(--muted)!important;
+  background:var(--soft);
   padding:8px 12px;
   border-radius:20px
 }
@@ -739,30 +633,28 @@ button {
   margin-top:21px
 }
 .text-button {
-  border:1px solid #cfdac6;
-  color:var(--green);
-  padding:11px 18px;
-  border-radius:7px;
-  font-size:11px;
-  font-weight:600;
-  min-height:42px;
+  color:var(--ink);
+  padding:10px 18px;
+  font-size:13px;
+  font-weight:700;
+  min-height:44px;
   display:inline-flex;
   align-items:center;
   gap:8px
 }
 .text-button:hover {
-  background:#f0f5e9
+  background:var(--action)
 }
 .state-panel.error {
-  border-color:#e6d4c9;
-  background:#fffdf9
+  border-color:var(--line);
+  background:var(--soft)
 }
 .state-panel.error .state-visual {
-  color:#a77248
+  color:var(--muted)
 }
 .list-footnote {
-  font-size:10px;
-  color:#86917f;
+  font-size:12px;
+  color:var(--muted);
   text-align:center;
   margin-top:20px;
   line-height:1.8;
@@ -774,7 +666,7 @@ button {
   gap:21px
 }
 .skeleton-card {
-  background:#fff;
+  background:var(--white);
   border:1px solid var(--line);
   padding:14px;
   border-radius:12px;
@@ -783,11 +675,11 @@ button {
 .skeleton-image {
   height:160px;
   border-radius:7px;
-  background:#eef2e9
+  background:var(--soft)
 }
 .skeleton-line {
   height:10px;
-  background:#eef2e9;
+  background:var(--soft);
   border-radius:3px;
   margin-top:15px;
   width:85%
@@ -823,7 +715,7 @@ button {
 }
 .how-intro>p:last-child {
   font-size:12px;
-  color:#84917b;
+  color:var(--muted);
   line-height:1.9;
   margin-top:17px
 }
@@ -837,8 +729,8 @@ button {
   gap:18px
 }
 .step-number {
-  color:#9aaf8a;
-  font-size:11px;
+  color:var(--muted);
+  font-size:12px;
   font-weight:600;
   letter-spacing:.5px;
   line-height:1.8;
@@ -850,8 +742,8 @@ button {
   margin-bottom:7px
 }
 .how-steps p {
-  font-size:11px;
-  color:#809075;
+  font-size:12px;
+  color:var(--muted);
   line-height:1.9;
   word-break:keep-all
 }
@@ -872,7 +764,7 @@ button {
   justify-content:space-between;
   gap:15px;
   font-size:12px;
-  color:#5d7056;
+  color:var(--muted);
   line-height:1.7
 }
 .method-details summary::-webkit-details-marker {
@@ -897,8 +789,8 @@ button {
   margin-bottom:9px
 }
 .site-footer {
-  background:#edf1e8;
-  border-top:1px solid #e1e8d8;
+  background:var(--white);
+  border-top:1px solid var(--line);
   padding:35px 0
 }
 .footer-inner {
@@ -914,26 +806,26 @@ button {
   white-space:nowrap
 }
 .footer-brand span {
-  color:#7e985d
+  color:var(--muted)
 }
 .footer-inner>div>p {
-  font-size:10px;
-  color:#87967b;
+  font-size:12px;
+  color:var(--muted);
   margin-top:8px
 }
 .footer-notice {
   max-width:640px
 }
 .footer-notice p {
-  font-size:10px;
-  color:#78896d;
+  font-size:12px;
+  color:var(--muted);
   line-height:1.8;
   margin-top:0!important
 }
 .footer-notice>span {
   display:block;
-  font-size:9px;
-  color:#7d8e70;
+  font-size:12px;
+  color:var(--muted);
   margin-top:16px
 }
 .product-dialog {
@@ -943,12 +835,12 @@ button {
   border:1px solid var(--line);
   border-radius:18px;
   color:var(--ink);
-  background:#fff;
-  box-shadow:0 30px 100px #0c2a2533;
+  background:var(--white);
+  box-shadow:none;
   overscroll-behavior:contain
 }
 .product-dialog::backdrop {
-  background:#102a22a1;
+  background:#11111180;
   backdrop-filter:blur(3px)
 }
 .dialog-open {
@@ -969,7 +861,7 @@ button {
 }
 .detail-image {
   height:150px;
-  background:#f5f7ef;
+  background:var(--soft);
   border-radius:12px;
   display:grid;
   place-items:center;
@@ -989,13 +881,13 @@ button {
   padding-right:15px
 }
 .detail-category {
-  font-size:10px;
-  color:#849477;
+  font-size:12px;
+  color:var(--muted);
   margin-bottom:7px
 }
 .detail-dates {
-  font-size:11px;
-  color:#7f8d75;
+  font-size:12px;
+  color:var(--muted);
   margin-top:10px
 }
 .comparison-box {
@@ -1003,7 +895,7 @@ button {
   grid-template-columns:1fr auto 1fr;
   gap:20px;
   align-items:center;
-  background:#f3f6ed;
+  background:var(--soft);
   border-radius:11px;
   padding:20px 25px
 }
@@ -1013,8 +905,8 @@ button {
   gap:7px
 }
 .comparison-box small {
-  font-size:10px;
-  color:#7b8d6c
+  font-size:12px;
+  color:var(--muted)
 }
 .comparison-box b {
   font-size:23px;
@@ -1022,12 +914,12 @@ button {
   font-weight:750
 }
 .comparison-box span {
-  font-size:10px;
-  color:#8c997f
+  font-size:12px;
+  color:var(--muted)
 }
 .comparison-arrow {
   font-size:22px;
-  color:#b0bda3
+  color:var(--muted)
 }
 .detail-savings {
   font-size:13px;
@@ -1036,8 +928,8 @@ button {
   margin:16px 0
 }
 .detail-observed {
-  font-size:10px;
-  color:#7e8c75;
+  font-size:12px;
+  color:var(--muted);
   line-height:1.8
 }
 .chart-heading {
@@ -1052,8 +944,8 @@ button {
   font-weight:650
 }
 .chart-heading>span {
-  font-size:9px;
-  color:#8b987f
+  font-size:12px;
+  color:var(--muted)
 }
 .history-chart {
   width:100%;
@@ -1062,8 +954,8 @@ button {
   margin-top:15px
 }
 .chart-caption {
-  font-size:10px;
-  color:#84917b;
+  font-size:12px;
+  color:var(--muted);
   line-height:1.8;
   margin-top:9px
 }
@@ -1074,9 +966,9 @@ button {
 }
 .history-table-details summary {
   cursor:pointer;
-  font-size:11px;
+  font-size:12px;
   padding:14px 0;
-  color:#5a7250
+  color:var(--muted)
 }
 .history-table-wrap {
   max-height:250px;
@@ -1086,25 +978,25 @@ button {
 .history-table {
   border-collapse:collapse;
   width:100%;
-  font-size:11px;
+  font-size:12px;
   text-align:left
 }
 .history-table th,.history-table td {
   padding:9px 12px;
-  border-bottom:1px solid #edf0e8;
+  border-bottom:1px solid var(--line);
   font-variant-numeric:tabular-nums
 }
 .history-table th {
-  font-size:10px;
-  color:#76876b;
+  font-size:12px;
+  color:var(--muted);
   font-weight:500;
-  background:#f5f7f0;
+  background:var(--soft);
   position:sticky;
   top:0
 }
 .history-table td:last-child {
-  color:#87957b;
-  font-size:10px
+  color:var(--muted);
+  font-size:12px
 }
 .detail-footer {
   margin-top:25px;
@@ -1118,26 +1010,24 @@ button {
   align-items:center;
   justify-content:center;
   gap:12px;
-  background:var(--green);
-  color:#fff;
-  border-radius:8px;
-  font-weight:600;
-  padding:15px;
-  font-size:13px
+  min-height:48px;
+  font-weight:700;
+  padding:13px;
+  font-size:14px
 }
 .buy-link:hover {
-  background:var(--green-dark)
+  background:var(--action)
 }
 .affiliate-disclosure {
-  font-size:10px;
-  color:#7d8d70;
+  font-size:12px;
+  color:var(--muted);
   line-height:1.9;
   word-break:keep-all
 }
 .link-unavailable {
   font-size:12px;
-  color:#7e8b74;
-  background:#f1f4eb;
+  color:var(--muted);
+  background:var(--soft);
   border-radius:8px;
   padding:14px;
   text-align:center
@@ -1145,17 +1035,17 @@ button {
 .noscript-notice {
   padding:20px;
   text-align:center;
-  background:#f6ebcc;
-  color:#65512f;
+  background:var(--soft);
+  color:var(--muted);
   font-size:13px
 }
 .history-empty {
   padding:30px 15px;
   text-align:center;
-  background:#f5f7f1;
+  background:var(--soft);
   border-radius:8px;
   font-size:12px;
-  color:#7d8d72;
+  color:var(--muted);
   margin-top:16px
 }
 @media(min-width:1440px) {
@@ -1166,9 +1056,7 @@ button {
   .hero h1 {
     font-size:49px
   }
-  .journal-panel {
-    min-height:300px
-  }
+
 }
 @media(max-width:1050px) {
   .wrap {
@@ -1190,18 +1078,10 @@ button {
   .hero h1 {
     font-size:36px
   }
-  .journal-panel {
-    padding-inline:20px
-  }
-  .paper-card-back {
-    left:137px
-  }
-  .paper-card-middle {
-    left:6px
-  }
-  .paper-card-front {
-    left:73px
-  }
+
+
+
+
   .summary-strip {
     gap:25px
   }
@@ -1235,7 +1115,7 @@ button {
     border-radius:10px
   }
   .header-nav {
-    font-size:11px;
+    font-size:12px;
     gap:18px
   }
   .header-nav>a:first-child {
@@ -1252,68 +1132,32 @@ button {
     letter-spacing:-1.6px
   }
   .hero .eyebrow {
-    font-size:8px;
+    font-size:12px;
     letter-spacing:1.5px;
     margin-bottom:16px
   }
   .hero-description {
-    font-size:11px;
+    font-size:12px;
     margin-top:14px
   }
   .hero-link {
-    font-size:10px;
+    font-size:12px;
     gap:16px;
     margin-top:19px
   }
-  .journal-panel {
-    min-height:242px;
-    padding:18px 16px
-  }
-  .journal-label {
-    font-size:9px
-  }
-  .period-illustration {
-    height:127px;
-    margin-top:6px
-  }
-  .paper-card {
-    width:80px;
-    height:105px;
-    padding:12px 8px;
-    top:10px
-  }
-  .paper-card>span {
-    font-size:7px
-  }
-  .paper-card b {
-    font-size:37px
-  }
-  .paper-card b span {
-    font-size:10px
-  }
-  .paper-card i {
-    font-size:5px
-  }
-  .paper-card-front {
-    left:55px
-  }
-  .paper-card-middle {
-    left:1px;
-    top:20px
-  }
-  .paper-card-back {
-    left:109px;
-    top:20px
-  }
-  .journal-bottom {
-    font-size:9px;
-    padding-top:13px
-  }
-  .journal-seal {
-    width:35px;
-    height:35px;
-    font-size:8px
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+
   .summary-strip {
     gap:16px;
     padding:18px 20px
@@ -1322,10 +1166,10 @@ button {
     padding-right:16px
   }
   .summary-strip strong {
-    font-size:10px
+    font-size:12px
   }
   .summary-label {
-    font-size:9px
+    font-size:12px
   }
   .summary-about {
     display:none
@@ -1366,14 +1210,14 @@ button {
     font-size:20px
   }
   .how-intro .eyebrow {
-    font-size:8px;
+    font-size:12px;
     letter-spacing:1px
   }
   .how-steps h3 {
     font-size:12px
   }
   .how-steps p {
-    font-size:10px
+    font-size:12px
   }
   .how-steps article {
     gap:12px
@@ -1426,77 +1270,27 @@ button {
     line-height:1.85
   }
   .hero .eyebrow {
-    font-size:8px;
+    font-size:12px;
     letter-spacing:1.8px
   }
   .hero-link {
-    font-size:11px;
+    font-size:12px;
     margin-top:21px
   }
-  .journal-panel {
-    display:flex;
-    min-height:124px;
-    border-radius:12px;
-    padding:18px 21px;
-    align-items:center;
-    justify-content:space-between
-  }
-  .journal-top {
-    align-self:flex-start;
-    flex-direction:column;
-    align-items:flex-start;
-    gap:16px;
-    position:relative;
-    z-index:5
-  }
-  .journal-label {
-    font-size:10px;
-    max-width:90px;
-    line-height:1.6
-  }
-  .journal-icon {
-    font-size:23px
-  }
-  .period-illustration {
-    margin:0;
-    width:166px;
-    height:93px;
-    flex:0 0 166px
-  }
-  .paper-card {
-    width:65px;
-    height:82px;
-    padding:8px 6px;
-    gap:3px
-  }
-  .paper-card>span {
-    font-size:6px
-  }
-  .paper-card b {
-    font-size:29px
-  }
-  .paper-card b span {
-    font-size:8px
-  }
-  .paper-card i {
-    font-size:4px;
-    margin-top:3px
-  }
-  .paper-card-front {
-    left:49px;
-    top:0
-  }
-  .paper-card-middle {
-    left:3px;
-    top:9px
-  }
-  .paper-card-back {
-    left:95px;
-    top:9px
-  }
-  .journal-bottom {
-    display:none
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   .summary-strip {
     padding:18px 13px;
     gap:10px;
@@ -1509,11 +1303,11 @@ button {
     flex:1
   }
   .summary-label {
-    font-size:8px;
+    font-size:12px;
     line-height:1.6
   }
   .summary-strip strong {
-    font-size:9px;
+    font-size:12px;
     line-height:1.8;
     word-break:keep-all
   }
@@ -1524,11 +1318,11 @@ button {
     padding-top:37px
   }
   .eyebrow {
-    font-size:8px;
+    font-size:12px;
     letter-spacing:1.7px
   }
   .update-label {
-    font-size:8px;
+    font-size:12px;
     max-width:190px;
     line-height:1.7
   }
@@ -1537,7 +1331,7 @@ button {
     letter-spacing:-.8px
   }
   .result-count {
-    font-size:10px
+    font-size:12px
   }
   .segmented-control {
     width:100%;
@@ -1550,7 +1344,7 @@ button {
     font-size:12px
   }
   .period-filter legend {
-    font-size:9px
+    font-size:12px
   }
   .filter-right {
     gap:9px
@@ -1561,7 +1355,7 @@ button {
     max-width:54%
   }
   .category-filter select {
-    font-size:10px;
+    font-size:12px;
     min-height:40px;
     padding-right:5px;
     max-width:100%;
@@ -1575,16 +1369,16 @@ button {
     gap:10px
   }
   .sort-filter button {
-    font-size:10px
+    font-size:12px
   }
   .results-description {
-    font-size:9px;
+    font-size:12px;
     margin:15px 0;
     gap:8px;
     line-height:1.7
   }
   .results-description>span {
-    font-size:8px
+    font-size:12px
   }
   .product-grid {
     gap:11px
@@ -1601,14 +1395,14 @@ button {
     left:9px;
     width:23px;
     height:23px;
-    font-size:10px
+    font-size:12px
   }
   .product-title {
-    font-size:11px;
+    font-size:12px;
     min-height:38px
   }
   .product-category {
-    font-size:8px;
+    font-size:12px;
     margin-bottom:5px
   }
   .product-price {
@@ -1616,22 +1410,22 @@ button {
     margin-top:11px
   }
   .product-price small {
-    font-size:10px
+    font-size:12px
   }
   .drop-values {
     gap:4px;
-    font-size:8px;
+    font-size:12px;
     margin-top:5px
   }
   .drop-values strong {
-    font-size:11px
+    font-size:12px
   }
   .compare-period {
-    font-size:8px;
+    font-size:12px;
     line-height:1.6
   }
   .product-date {
-    font-size:8px;
+    font-size:12px;
     flex-direction:column;
     gap:7px;
     align-items:flex-start;
@@ -1639,7 +1433,7 @@ button {
     margin-top:9px
   }
   .record-link {
-    font-size:9px;
+    font-size:12px;
     min-height:25px
   }
   .state-panel {
@@ -1651,7 +1445,7 @@ button {
     word-break:keep-all
   }
   .state-panel p {
-    font-size:11px;
+    font-size:12px;
     max-width:290px
   }
   .state-visual {
@@ -1660,12 +1454,12 @@ button {
     margin-bottom:17px
   }
   .state-meta {
-    font-size:9px!important;
+    font-size:12px!important;
     padding:7px 10px;
     margin-top:19px
   }
   .list-footnote {
-    font-size:9px;
+    font-size:12px;
     margin-top:16px
   }
   .how-section {
@@ -1680,7 +1474,7 @@ button {
     margin-top:11px
   }
   .how-intro>p:last-child {
-    font-size:11px;
+    font-size:12px;
     margin-top:13px
   }
   .how-steps {
@@ -1690,26 +1484,26 @@ button {
     font-size:12px
   }
   .how-steps p {
-    font-size:11px
+    font-size:12px
   }
   .how-steps article {
     gap:16px
   }
   .method-details summary {
-    font-size:11px;
+    font-size:12px;
     padding:17px 0
   }
   .method-details details p {
-    font-size:11px
+    font-size:12px
   }
   .site-footer {
     padding:27px 0
   }
   .footer-notice p {
-    font-size:9px
+    font-size:12px
   }
   .footer-notice>span {
-    font-size:8px
+    font-size:12px
   }
   .product-dialog {
     padding:24px 19px;
@@ -1737,10 +1531,10 @@ button {
     padding-right:0
   }
   .detail-category {
-    font-size:9px
+    font-size:12px
   }
   .detail-dates {
-    font-size:9px;
+    font-size:12px;
     line-height:1.7
   }
   .comparison-box {
@@ -1748,37 +1542,37 @@ button {
     padding:17px 13px
   }
   .comparison-box small {
-    font-size:9px
+    font-size:12px
   }
   .comparison-box b {
     font-size:18px
   }
   .comparison-box span {
-    font-size:9px
+    font-size:12px
   }
   .detail-savings {
     font-size:12px
   }
   .detail-observed {
-    font-size:9px
+    font-size:12px
   }
   .chart-heading h3 {
     font-size:13px
   }
   .chart-heading>span {
-    font-size:8px
+    font-size:12px
   }
   .chart-caption {
-    font-size:9px
+    font-size:12px
   }
   .history-table {
-    font-size:10px
+    font-size:12px
   }
   .history-table th,.history-table td {
     padding:8px
   }
   .affiliate-disclosure {
-    font-size:9px
+    font-size:12px
   }
   .buy-link {
     font-size:12px
@@ -1795,8 +1589,109 @@ button {
 }
 /* Keep small supporting text readable on the light surfaces. */
 .eyebrow,.summary-label,.update-label,.period-filter legend,.sort-filter button,.results-description,.results-description>span,.product-category,.compare-period,.product-date,.state-panel p,.list-footnote,.how-intro>p:last-child,.how-steps p,.step-number,.footer-inner>div>p,.footer-notice p,.footer-notice>span,.detail-category,.detail-dates,.comparison-box small,.comparison-box span,.detail-observed,.chart-heading>span,.chart-caption,.history-table th,.history-table td:last-child,.affiliate-disclosure,.link-unavailable,.history-empty {
-  color:#64725d
+  color:var(--muted)
 }
 .product-category,.compare-period,.product-date,.detail-category,.detail-dates,.detail-observed,.chart-caption,.affiliate-disclosure {
-  color:#65705f
+  color:var(--muted)
+}
+
+/* Card Battle: white content, with neo-brutalist treatment reserved for actions. */
+.hero-link,.buy-link,.text-button {
+  background:var(--action);
+  color:var(--ink);
+  border:2px solid var(--ink);
+  border-radius:2px;
+  box-shadow:var(--action-shadow);
+  transition:transform 120ms ease,box-shadow 120ms ease
+}
+.hero-link:hover,.buy-link:hover,.text-button:hover {
+  transform:translate(-1px,-1px);
+  box-shadow:4px 4px 0 var(--ink)
+}
+.hero-link:active,.buy-link:active,.text-button:active,.segmented-control button[aria-pressed=true]:active {
+  transform:translate(1px,1px);
+  box-shadow:none
+}
+.brand-dot,.footer-brand span,.hero h1 span,.sort-filter button[aria-pressed=true] { color:var(--ink) }
+.brand-mark { background:none; border-radius:0 }
+.status-dot,.tiny-line { background:var(--ink) }
+.hero-description { font-size:15px; word-break:keep-all }
+.journal-panel { padding-left:24px; border-left:1px solid var(--line) }
+.journal-label { font-size:13px; color:var(--muted); margin-bottom:16px }
+.journal-periods { margin:0 }
+.journal-periods>div { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:17px 0; border-top:1px solid var(--line) }
+.journal-periods dt { font-size:36px; font-weight:800; line-height:1.1; letter-spacing:-1.5px }
+.journal-periods dt span { font-size:13px; font-weight:500; letter-spacing:0; margin-left:5px }
+.journal-periods dd { font-size:13px; color:var(--muted); margin:0 }
+.summary-strip strong { font-size:14px }
+.period-filter legend { margin-bottom:12px }
+.category-filter { border-radius:2px; border-color:var(--line) }
+.category-filter select { min-height:44px; font-size:13px }
+.sort-filter button { font-size:13px }
+.state-panel h3 { font-size:22px }
+.state-panel p { font-size:14px }
+.state-meta { background:var(--soft); border-radius:2px; color:var(--muted)!important }
+.state-panel.error { background:var(--white) }
+.state-visual ellipse { fill:var(--soft) }
+.state-visual rect { fill:var(--white); stroke:var(--line) }
+.state-visual path { stroke:var(--muted) }
+.history-chart line { stroke:var(--ink) }
+.history-chart line[stroke-dasharray] { stroke:var(--line) }
+.history-chart circle { stroke:var(--ink) }
+.history-chart text { fill:var(--muted) }
+.product-title { font-size:14px; font-weight:600 }
+.product-title button { min-height:44px }
+.record-link { min-height:44px; text-decoration:underline; text-underline-offset:4px }
+.product-date { align-items:center }
+.product-dialog { border-radius:8px; box-shadow:0 16px 60px #00000026 }
+.dialog-close { width:44px; height:44px }
+.detail-title { padding-right:24px }
+.how-intro h2 { font-size:26px }
+.how-steps h3 { font-size:15px }
+.how-steps p,.how-intro>p:last-child,.method-details summary,.method-details details p { font-size:14px }
+.method-guide-link { display:inline-flex; align-items:center; gap:14px; min-height:44px; margin-top:22px; font-size:14px; font-weight:700; text-decoration:underline; text-underline-offset:5px }
+.footer-links { display:flex; flex-wrap:wrap; gap:20px; margin-bottom:14px; font-size:13px; text-decoration:underline; text-underline-offset:4px }
+@media(max-width:760px) {
+  .hero { grid-template-columns:1fr; gap:32px }
+  .journal-panel { padding:0; border-left:0 }
+  .journal-label { font-size:12px; margin-bottom:12px }
+  .journal-periods { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px }
+  .journal-periods>div { display:block; padding:14px 0 0 }
+  .journal-periods dt { font-size:28px }
+  .journal-periods dd { margin-top:8px; font-size:12px }
+  .hero-link { font-size:14px }
+  .hero-description { font-size:14px }
+  .summary-strip { padding:20px 0; gap:14px }
+  .summary-strip strong { font-size:12px }
+  .summary-label { font-size:11px }
+  .category-filter select,.sort-filter button { font-size:12px }
+}
+@media(max-width:540px) {
+  .wrap { width:calc(100% - 40px) }
+  .hero { padding-top:36px; padding-bottom:32px }
+  .hero h1 { font-size:30px; letter-spacing:-1.3px }
+  .brand { font-size:19px }
+  .header-nav { font-size:12px }
+  .summary-strip { gap:10px }
+  .summary-strip>div { padding-right:10px }
+  .summary-label { font-size:10px }
+  .summary-strip strong { font-size:11px }
+  .segmented-control { gap:10px }
+  .segmented-control button { min-height:44px; font-size:14px; padding:8px 12px }
+  .category-filter { max-width:50%; padding-inline:7px }
+  .category-filter select { min-width:0; min-height:44px; font-size:11px }
+  .sort-filter { gap:8px }
+  .sort-filter button { font-size:11px }
+  .results-description,.results-description>span,.update-label { font-size:11px }
+  .section-heading h2 { font-size:20px }
+  .state-panel h3 { font-size:20px }
+  .state-panel p { font-size:13px }
+  .state-meta { font-size:11px!important }
+  .product-title { font-size:13px }
+  .product-category,.compare-period,.product-date { font-size:11px }
+  .product-date { align-items:flex-start }
+  .drop-values { font-size:11px }
+  .drop-values strong { font-size:13px }
+  .how-intro h2 { font-size:24px }
+  .detail-title { padding-right:10px; font-size:14px }
 }

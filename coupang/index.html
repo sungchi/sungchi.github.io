@@ -3,19 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#164e3f">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' https://*.coupangcdn.com https://*.coupang.com data:; connect-src 'self' https://lveuekjktmkmvlxzkoai.supabase.co http://127.0.0.1:* http://localhost:*; base-uri 'self'; object-src 'none'; form-action 'none'">
-  <meta name="description" content="카테고리별 상품의 가격 기록을 1일·7일·30일 전과 비교합니다. 할인율 또는 할인 금액순으로 가격이 내려간 상품을 살펴보세요.">
+  <meta name="description" content="쿠팡 상품의 가격 변동을 1일·7일·30일 전 기록과 비교하세요. 카테고리별 하루 한 번 확인한 가격으로 할인율·할인 금액이 큰 상품을 최대 100개 보여드립니다.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="빠른 쿠팡 홈 · 내려간 가격부터, 가볍게">
-  <meta property="og:description" content="1일·7일·30일 전 가격 기록과 비교하는 똑똑한 쇼핑의 시작.">
+  <meta property="og:title" content="쿠팡 가격 변동·할인율 비교 | 빠른 쿠팡 홈">
+  <meta property="og:description" content="어제·일주일 전·한 달 전 가격과 비교해 내려간 상품을 살펴보세요. 할인율순·할인 금액순 최대 100개.">
   <meta property="og:url" content="https://plan9.kr/coupang/">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="빠른 쿠팡 홈">
+  <meta property="og:image" content="https://plan9.kr/coupang/assets/share.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="빠른 쿠팡 홈 — 1일·7일·30일 전 가격 변동 비교">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="sitemap" type="application/xml" href="./sitemap.xml">
   <link rel="canonical" href="https://plan9.kr/coupang/">
-  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="icon" href="./assets/favicon.svg?v=2" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css?v=e883a49f5b28">
   <script src="./config.js" defer></script>
   <script src="./app.js" defer></script>
-  <title>빠른 쿠팡 홈 · 내려간 가격부터, 가볍게</title>
+  <title>쿠팡 가격 변동·할인율 비교 | 빠른 쿠팡 홈</title>
 </head>
 <body>
   <a class="skip-link" href="#price-drops">가격 목록으로 바로 가기</a>
@@ -27,28 +36,29 @@
       </a>
       <nav class="header-nav" aria-label="주요 메뉴">
         <a href="#price-drops">가격 하락 모아보기</a>
-        <a href="#how-it-works">비교 방법 <span aria-hidden="true">↗</span></a>
+        <a href="./guide/">비교 방법 <span aria-hidden="true">↗</span></a>
       </nav>
       <span class="header-note"><span class="status-dot" aria-hidden="true"></span>가격을 기억하는 쇼핑</span>
     </div>
   </header>
 
-  <main>
+  <main itemscope itemtype="https://schema.org/CollectionPage">
+    <meta itemprop="url" content="https://plan9.kr/coupang/">
+    <meta itemprop="inLanguage" content="ko-KR">
     <section class="hero wrap" aria-labelledby="hero-title">
       <div class="hero-copy">
         <p class="eyebrow"><span class="tiny-line" aria-hidden="true"></span> THE PRICE JOURNAL</p>
-        <h1 id="hero-title">내려간 가격부터,<br><span>가볍게 둘러보세요.</span></h1>
-        <p class="hero-description">어제, 일주일 전, 한 달 전에는 얼마였을까요?<br>같은 상품의 가격 기록을 나란히 비교해 드려요.</p>
+        <h1 id="hero-title" itemprop="name">쿠팡 가격 변동,<br><span>기록으로 비교하세요.</span></h1>
+        <p class="hero-description" itemprop="description">쿠팡 상품의 1일·7일·30일 전 가격을 비교해요.<br>가격이 내려간 상품을 할인율·할인 금액순으로 살펴보세요.</p>
         <a class="hero-link" href="#price-drops">가격 하락 살펴보기 <span aria-hidden="true">↓</span></a>
       </div>
-      <aside class="journal-panel" aria-label="가격 기록 안내">
-        <div class="journal-top"><span class="journal-label">차곡차곡, 가격 기록</span><span class="journal-icon" aria-hidden="true">↘</span></div>
-        <div class="period-illustration" aria-hidden="true">
-          <span class="paper-card paper-card-back"><span>한 달의 변화</span><b>30<span>일</span></b></span>
-          <span class="paper-card paper-card-middle"><span>일주일의 변화</span><b>7<span>일</span></b></span>
-          <span class="paper-card paper-card-front"><span>어제와 비교</span><b>1<span>일</span></b><i>PRICE RECORD</i></span>
-        </div>
-        <div class="journal-bottom"><span>기억에 의존하지 않는<br><strong>가격 비교의 시작</strong></span><span class="journal-seal" aria-hidden="true">매일<br>기록</span></div>
+      <aside class="journal-panel" aria-label="가격 기록 비교 기간">
+        <p class="journal-label">같은 상품, 세 가지 비교 기준</p>
+        <dl class="journal-periods">
+          <div><dt>1<span>일 전</span></dt><dd>어제와 비교</dd></div>
+          <div><dt>7<span>일 전</span></dt><dd>일주일 전과 비교</dd></div>
+          <div><dt>30<span>일 전</span></dt><dd>한 달 전과 비교</dd></div>
+        </dl>
       </aside>
     </section>
 
@@ -84,10 +94,11 @@
     <section class="method-details wrap" aria-label="가격 기록 상세 안내">
       <details><summary>할인율과 할인 금액은 어떻게 계산하나요?<span aria-hidden="true">+</span></summary><div><p>할인 금액은 ‘과거 기준일 가격 − 최근 관측가’, 할인율은 ‘할인 금액 ÷ 과거 기준일 가격 × 100’입니다. 가격이 실제로 내려간 상품만 순위에 포함하며, 같은 기간의 평균이나 최고가를 기준으로 삼지 않습니다.</p><p>각 카드에서 실제로 비교한 두 날짜와 최근 확인 시각을 확인할 수 있어요. 오늘의 확인 시간이 아직 지나지 않았다면 어제의 기록을 기준으로 비교할 수 있습니다.</p></div></details>
       <details><summary>보이지 않는 상품이나 빈 날짜가 있어요.<span aria-hidden="true">+</span></summary><div><p>카테고리 목록은 달라질 수 있어요. 비교할 날짜의 기록이 없거나, 같은 옵션인지 확인하기 어렵거나, 가격 확인이 늦어진 상품은 순위에서 제외합니다. 기록이 없는 날을 임의의 가격으로 채우지 않아요.</p><p>카테고리별 확인 시간이 달라 상품마다 기록 시각이 다릅니다. 최근 확인 후 36시간을 넘긴 가격은 현재 가격 하락 목록에 사용하지 않습니다. 목록에서 사라진 것만으로 품절을 뜻하지는 않아요.</p></div></details>
+      <a class="method-guide-link" href="./guide/">쿠팡 가격 변동과 할인율 비교 방법 자세히 읽기 <span aria-hidden="true">↗</span></a>
     </section>
   </main>
 
-  <footer class="site-footer"><div class="wrap footer-inner"><div><a class="footer-brand" href="./">빠른 쿠팡 홈<span>.</span></a><p>가격을 기억하고, 선택은 가볍게.</p></div><div class="footer-notice"><p>쿠팡이 운영하는 공식 서비스가 아닌 독립적인 상품 정보 서비스입니다.</p><p>이 사이트는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받을 수 있습니다.</p><span>© <span id="footer-year">2026</span> 빠른 쿠팡 홈 · 모든 날짜와 시각은 한국시간 기준</span></div></div></footer>
+  <footer class="site-footer"><div class="wrap footer-inner"><div><a class="footer-brand" href="./">빠른 쿠팡 홈<span>.</span></a><p>가격을 기억하고, 선택은 가볍게.</p></div><div class="footer-notice"><nav class="footer-links" aria-label="서비스 안내"><a href="./guide/">가격 비교 안내</a><a href="./sitemap.xml">사이트맵</a></nav><p>쿠팡이 운영하는 공식 서비스가 아닌 독립적인 상품 정보 서비스입니다.</p><p>이 사이트는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받을 수 있습니다.</p><span>© <span id="footer-year">2026</span> 빠른 쿠팡 홈 · 모든 날짜와 시각은 한국시간 기준</span></div></div></footer>
 
   <dialog id="product-dialog" class="product-dialog" aria-labelledby="dialog-title"><button type="button" id="close-dialog" class="icon-button dialog-close" aria-label="상품 상세 닫기"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button><div id="dialog-content"></div></dialog>
   <noscript><div class="noscript-notice">가격 목록을 보려면 브라우저에서 자바스크립트를 켜 주세요. 서비스의 비교 방법은 이 페이지에서 확인할 수 있습니다.</div></noscript>
