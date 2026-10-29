@@ -14,8 +14,8 @@
   align-items:center;
   gap:12px;
   color:#555;
-  font-size:12px;
-  line-height:1.7
+  font-size:14px;
+  line-height:1.8
 }
 .guide-breadcrumb a {
   display:inline-flex;
@@ -31,21 +31,21 @@
 .guide-eyebrow {
   margin-bottom:18px;
   color:#555;
-  font-size:13px;
-  font-weight:700
+  font-size:15px;
+  font-weight:600
 }
 .guide-intro h1 {
   font-size:clamp(32px,4vw,48px);
-  font-weight:800;
-  line-height:1.35;
-  letter-spacing:-1.8px
+  font-weight:700;
+  line-height:1.4;
+  letter-spacing:-.02em
 }
 .guide-lead {
-  max-width:690px;
+  max-width:720px;
   margin-top:24px;
-  color:#555;
-  font-size:16px;
-  line-height:1.9
+  color:#333;
+  font-size:17px;
+  line-height:1.85
 }
 .guide-intro .hero-link,
 .guide-section .hero-link {
@@ -67,8 +67,8 @@
 }
 .guide-toc h2 {
   margin-bottom:16px;
-  font-size:13px;
-  font-weight:800
+  font-size:15px;
+  font-weight:700
 }
 .guide-toc ol {
   display:grid;
@@ -88,13 +88,13 @@
   min-height:44px;
   padding:11px 0;
   color:#555;
-  font-size:13px;
-  line-height:1.7
+  font-size:15px;
+  line-height:1.8
 }
 .guide-toc a::before {
   content:counter(guide-toc,decimal-leading-zero);
-  color:#777;
-  font-size:11px;
+  color:#555;
+  font-size:13px;
   font-variant-numeric:tabular-nums
 }
 .guide-toc a:hover,
@@ -104,7 +104,9 @@
   text-underline-offset:4px
 }
 .guide-sections {
-  min-width:0
+  min-width:0;
+  width:100%;
+  max-width:740px
 }
 .guide-section {
   padding:40px 0 44px;
@@ -115,8 +117,8 @@
 }
 .guide-section-number {
   margin-bottom:14px;
-  color:#777;
-  font-size:12px;
+  color:#555;
+  font-size:14px;
   font-weight:600;
   font-variant-numeric:tabular-nums
 }
@@ -124,17 +126,17 @@
   margin-bottom:22px;
   font-size:clamp(22px,2.2vw,27px);
   line-height:1.5;
-  font-weight:800;
-  letter-spacing:-.8px
+  font-weight:700;
+  letter-spacing:-.015em
 }
 .guide-section > p:not(.guide-section-number),
 .guide-note p {
-  color:#555;
-  font-size:15px;
-  line-height:1.95
+  color:#333;
+  font-size:17px;
+  line-height:1.85
 }
 .guide-section > p + p {
-  margin-top:16px
+  margin-top:20px
 }
 .guide-section strong,
 .guide-note strong,
@@ -156,8 +158,8 @@
   gap:10px;
   min-height:44px;
   color:#111;
-  font-size:13px;
-  font-weight:700
+  font-size:15px;
+  font-weight:600
 }
 .guide-note {
   margin:24px 0;
@@ -176,17 +178,18 @@
 .guide-formulas dt {
   margin-bottom:6px;
   color:#111;
-  font-size:13px;
+  font-size:15px;
   font-weight:700
 }
 .guide-formulas dd {
   margin:0;
-  color:#555;
-  font-size:14px;
-  line-height:1.9
+  color:#333;
+  font-size:17px;
+  line-height:1.85
 }
-.guide-section > .guide-caption {
-  font-size:13px
+.guide-section > p.guide-caption {
+  color:#555;
+  font-size:15px
 }
 .guide-table-scroll {
   overflow-x:auto;
@@ -199,17 +202,17 @@
 }
 .guide-table {
   width:100%;
-  min-width:510px;
+  min-width:560px;
   border-collapse:collapse;
-  color:#111;
-  font-size:13px;
-  line-height:1.7;
+  color:#333;
+  font-size:15px;
+  line-height:1.8;
   font-variant-numeric:tabular-nums
 }
 .guide-table caption {
   padding:0 0 12px;
   color:#555;
-  font-size:12px;
+  font-size:14px;
   text-align:left
 }
 .guide-table th,
@@ -222,7 +225,7 @@
 .guide-table thead th {
   border-top:1px solid #111;
   color:#555;
-  font-size:12px;
+  font-size:14px;
   font-weight:600
 }
 .guide-table th:first-child {
@@ -243,17 +246,17 @@
   gap:12px;
   padding-left:20px;
   margin:24px 0;
-  color:#555;
-  font-size:15px;
-  line-height:1.9
+  color:#333;
+  font-size:17px;
+  line-height:1.85
 }
-.guide-section > .guide-disclosure {
+.guide-section > p.guide-disclosure {
   margin-top:24px;
   padding:20px 0;
   border-top:1px solid #d0d0d0;
   border-bottom:1px solid #d0d0d0;
-  color:#111;
-  font-size:13px
+  color:#333;
+  font-size:15px
 }
 .guide-section:last-child {
   padding-bottom:0
@@ -275,12 +278,9 @@
   .guide-intro {
     padding:28px 0 40px
   }
-  .guide-intro h1 {
-    letter-spacing:-1px
-  }
   .guide-lead {
     margin-top:20px;
-    font-size:15px
+    font-size:16px
   }
   .guide-layout {
     grid-template-columns:minmax(0,1fr);
@@ -297,7 +297,7 @@
   }
   .guide-toc a {
     gap:8px;
-    font-size:12px
+    font-size:14px
   }
   .guide-section {
     padding:32px 0
@@ -307,12 +307,14 @@
   }
   .guide-section > p:not(.guide-section-number),
   .guide-note p,
-  .guide-reasons {
-    font-size:14px
+  .guide-reasons,
+  .guide-formulas dd {
+    font-size:16px
   }
-  .guide-section > .guide-caption,
-  .guide-section > .guide-disclosure {
-    font-size:12px
+  .guide-section > p.guide-caption,
+  .guide-section > p.guide-disclosure,
+  .guide-table {
+    font-size:14px
   }
   .guide-links {
     display:grid;

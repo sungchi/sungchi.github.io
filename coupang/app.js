@@ -63,7 +63,7 @@
     document.querySelectorAll('[data-period]').forEach(el => el.setAttribute('aria-pressed', String(el.dataset.period === state.filters.period)));
     document.querySelectorAll('[data-sort]').forEach(el => el.setAttribute('aria-pressed', String(el.dataset.sort === state.filters.sort)));
     $('#category-select').value = state.filters.category;
-    $('#filter-description').textContent = `${state.filters.period}일 전 기록보다 가격이 내려간 상품을 ${state.filters.sort === 'rate' ? '할인율' : '할인 금액'}순으로 보여드려요.`;
+    $('#filter-description').textContent = `${state.filters.period}일 전 대비 · ${state.filters.sort === 'rate' ? '하락률' : '하락 금액'}순`;
   }
 
   function safeURL(raw, type) {
@@ -184,7 +184,7 @@
     imageButton.addEventListener('click', () => openProduct(item));
     const info = node('div', 'product-info');
     info.append(node('p', 'product-category', categoryName(item)));
-    const heading = node('h3', 'product-title');
+    const heading = node('h2', 'product-title');
     const titleButton = node('button', '', item.title);
     titleButton.type = 'button';
     titleButton.addEventListener('click', () => openProduct(item));
@@ -233,12 +233,12 @@
     const collecting = status.state === 'collecting';
     const tracked = Number.isSafeInteger(status.trackedProducts) && status.trackedProducts > 0 ? status.trackedProducts : 0;
     const panel = node('div', 'state-panel');
-    panel.append(icon(ready ? 'empty' : 'record', 'state-visual'), node('span', 'state-eyebrow', ready ? 'A QUIET MOMENT' : 'GOOD PRICES TAKE A LITTLE HISTORY'));
+    panel.append(icon(ready ? 'empty' : 'record', 'state-visual'));
     panel.append(node('h3', '', ready ? '조건에 맞는 가격 하락이 없어요' : collecting && tracked ? '비교할 가격 기록을 모으고 있어요' : '가격 기록을 준비하고 있어요'));
-    panel.append(node('p', '', ready ? `${state.filters.period}일 전 기록과 비교할 수 있고 가격이 내려간 상품이 아직 없어요. 다른 기간이나 카테고리도 살펴보세요.` : '같은 상품의 이전 기록이 쌓이면 가격이 내려간 상품을 여기서 만나볼 수 있어요. 실제로 확인한 가격만 보여드릴게요.'));
+    panel.append(node('p', '', ready ? `${state.filters.period}일 전 기록과 비교할 수 있고 가격이 내려간 상품이 아직 없어요. 다른 기간이나 카테고리도 살펴보세요.` : '이전 날짜의 기록이 쌓이면 가격이 내려간 상품을 보여드립니다.'));
     if (tracked) {
       const meta = node('p', 'state-meta');
-      meta.append(node('span', 'status-dot'), node('span', '', `${nf.format(tracked)}개 상품의 가격을 기록하고 있어요`));
+      meta.append(node('span', 'status-dot'), node('span', '', `${nf.format(tracked)}개 상품 기록 중`));
       panel.append(meta);
     }
     const actions = node('div', 'state-actions');
@@ -248,9 +248,6 @@
       reset.addEventListener('click', () => setFilters({ period: '1', category: 'all', sort: 'rate' }));
       actions.append(reset);
     }
-    const help = node('a', 'text-button', '어떻게 비교하나요? ↗');
-    help.href = '#how-it-works';
-    actions.append(help);
     panel.append(actions);
     results.replaceChildren(panel);
   }
@@ -259,7 +256,7 @@
     $('#result-count').textContent = '—';
     $('#update-label').textContent = '가격 정보를 다시 확인해 주세요';
     const panel = node('div', 'state-panel error');
-    panel.append(icon('error', 'state-visual'), node('span', 'state-eyebrow', 'PLEASE TRY AGAIN'), node('h3', '', '가격 정보를 불러오지 못했어요'), node('p', '', '잠시 연결이 원활하지 않아요. 선택한 조건은 그대로 두었으니, 조금 뒤에 다시 확인해 주세요.'));
+    panel.append(icon('error', 'state-visual'), node('h3', '', '가격 정보를 불러오지 못했어요'), node('p', '', '잠시 후 다시 불러와 주세요.'));
     const actions = node('div', 'state-actions');
     const retry = node('button', 'text-button', '다시 불러오기 ↻');
     retry.type = 'button';
@@ -291,7 +288,7 @@
       state.items.forEach((item, index) => grid.append(productCard(item, index + 1)));
       results.replaceChildren(grid);
     } else renderEmpty();
-    announce(`${state.filters.period}일 전 기록 대비 ${state.filters.sort === 'rate' ? '할인율' : '할인 금액'}순, ${state.items.length}개 상품을 표시합니다.`);
+    announce(`${state.filters.period}일 전 기록 대비 ${state.filters.sort === 'rate' ? '하락률' : '하락 금액'}순, ${state.items.length}개 상품을 표시합니다.`);
     if (dialog.open && !state.items.some(item => item.id === state.selectedId)) {
       dialog.close();
       announce('선택한 상품의 최근 가격 비교가 만료되었습니다. 현재 목록을 다시 확인해 주세요.');
@@ -372,10 +369,14 @@
     return rows;
   }
 
+  function chartWidth() {
+    return Math.max(240, Math.min(660, Math.round($('#dialog-content').clientWidth || window.innerWidth - 72)));
+  }
+
   function historyChart(rows) {
     const points = rows.filter(row => row.price !== null);
     if (!points.length) return node('p', 'history-empty', '아직 표시할 수 있는 가격 기록이 없어요.');
-    const width = 660, height = 210, left = 68, right = 22, top = 20, bottom = 34;
+    const width = chartWidth(), height = 230, left = 82, right = 16, top = 20, bottom = 36;
     const prices = points.map(point => point.price);
     const minimum = Math.min(...prices), maximum = Math.max(...prices);
     const padding = Math.max((maximum - minimum) * .2, maximum * .025, 1);
@@ -387,7 +388,7 @@
       const price = low + (high - low) * fraction;
       const py = y(price);
       svg.append(svgNode('line', { x1: left, y1: py, x2: width - right, y2: py, stroke: '#e8ede2', 'stroke-dasharray': '3 4' }));
-      const label = svgNode('text', { x: left - 10, y: py + 4, fill: '#64745a', 'font-size': 11, 'text-anchor': 'end' });
+      const label = svgNode('text', { x: left - 10, y: py + 4, fill: '#64745a', 'font-size': 13, 'text-anchor': 'end' });
       label.textContent = nf.format(Math.round(price));
       svg.append(label);
     });
@@ -403,9 +404,9 @@
       svg.append(circle);
       previous = point;
     });
-    const indices = rows.length < 3 ? [0, rows.length - 1] : [0, Math.floor((rows.length - 1) / 2), rows.length - 1];
+    const indices = rows.length < 3 || width < 440 ? [0, rows.length - 1] : [0, Math.floor((rows.length - 1) / 2), rows.length - 1];
     [...new Set(indices)].forEach(index => {
-      const label = svgNode('text', { x: x(index), y: height - 7, fill: '#64745a', 'font-size': 11, 'text-anchor': index === 0 ? 'start' : index === rows.length - 1 ? 'end' : 'middle' });
+      const label = svgNode('text', { x: x(index), y: height - 7, fill: '#64745a', 'font-size': 13, 'text-anchor': index === 0 ? 'start' : index === rows.length - 1 ? 'end' : 'middle' });
       label.textContent = dateLabel(rows[index].date);
       svg.append(label);
     });
@@ -485,6 +486,15 @@
     document.body.classList.add('dialog-open');
     $('#close-dialog').focus();
   }
+
+  // One observer keeps chart labels readable after opening or resizing the dialog.
+  new ResizeObserver(() => {
+    if (!dialog.open) return;
+    const chart = $('.history-chart', dialog);
+    if (!chart || chart.viewBox.baseVal.width === chartWidth()) return;
+    const item = state.items.find(item => item.id === state.selectedId);
+    if (item) chart.replaceWith(historyChart(historyRows(item)));
+  }).observe($('#dialog-content'));
 
   document.querySelectorAll('[data-period]').forEach(button => button.addEventListener('click', () => { if (button.dataset.period !== state.filters.period) setFilters({ period: button.dataset.period }); }));
   document.querySelectorAll('[data-sort]').forEach(button => button.addEventListener('click', () => { if (button.dataset.sort !== state.filters.sort) setFilters({ sort: button.dataset.sort }); }));
