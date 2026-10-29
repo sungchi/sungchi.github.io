@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#ffffff">
   <meta name="color-scheme" content="light">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' https://*.coupangcdn.com https://*.coupang.com data:; connect-src 'self' https://lveuekjktmkmvlxzkoai.supabase.co http://127.0.0.1:* http://localhost:*; base-uri 'self'; object-src 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; img-src 'self' https://*.coupangcdn.com https://*.coupang.com data: https://www.googletagmanager.com https://*.google-analytics.com; connect-src 'self' https://lveuekjktmkmvlxzkoai.supabase.co http://127.0.0.1:* http://localhost:* https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com; base-uri 'self'; object-src 'none'; form-action 'none'">
   <meta name="description" content="쿠팡 상품의 가격 변동을 1일·7일·30일 전 기록과 비교하세요. 카테고리별 하루 한 번 확인한 가격으로 하락률·하락 금액이 큰 상품을 최대 100개 보여드립니다.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="쿠팡 가격 변동·하락률 비교 | 빠른 쿠팡 홈">
@@ -24,10 +24,11 @@
   <link rel="icon" href="./assets/favicon-32.png?v=15b9116edb26" type="image/png" sizes="32x32">
   <link rel="icon" href="./assets/favicon.svg?v=d56974533d70" type="image/svg+xml" sizes="any">
   <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png?v=1cfd6a404dcf" sizes="180x180">
-  <link rel="stylesheet" href="./styles.css?v=82ccc879c8af">
+  <link rel="stylesheet" href="./styles.css?v=08b404643d69">
   <script src="./config.js" defer></script>
   <script src="./app.js?v=56ce9a2b0548" defer></script>
   <title>쿠팡 가격 변동·하락률 비교 | 빠른 쿠팡 홈</title>
+  <script src="./analytics.js?v=58aefc7c1a8b" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#price-drops">가격 목록으로 바로 가기</a>

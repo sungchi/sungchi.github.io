@@ -38,7 +38,7 @@ legend { margin-bottom:.3rem }
 .filters button { padding:.4rem .15rem; min-height:44px; border:0; border-bottom:2px solid transparent; border-radius:0; background:none; color:#555 }
 .filters button[aria-pressed=true] { color:#111; font-weight:700; border-bottom-color:#111 }
 .filters button:hover { color:#111 }
-.category-filter select { max-width:100%; min-height:40px; padding:.3rem .5rem; border:1px solid #ddd; border-radius:4px; background:#fff; color:#333 }
+.category-filter select { appearance:none; max-width:100%; min-height:40px; padding:.3rem 2.25rem .3rem .75rem; border:1px solid #ddd; border-radius:4px; background:#fff url('./assets/chevron-down.svg') no-repeat right .75rem center / 1rem; color:#333 }
 .sort-filter>span { display:none }
 .results-description,.update-label,.list-footnote,.product-category,.compare-period,.product-date,.detail-category,.detail-dates,.detail-observed,.chart-caption,.affiliate-disclosure,.footer-notice { color:#555; font-size:.875rem }
 .results-description { margin:1rem 0 }
