@@ -157,20 +157,31 @@
     container.append(img);
   }
 
+  function affiliateLink(item, className, text) {
+    const url = item.linkVerified === true ? safeURL(item.affiliateUrl, 'affiliate') : null;
+    if (!url) return null;
+    const link = node('a', className, text);
+    link.href = url.href;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer sponsored';
+    link.setAttribute('aria-label', `${item.title}, 쿠팡에서 상품 확인, 새 창으로 열림`);
+    link.addEventListener('click', event => {
+      if (normaliseItems([item]).length) return;
+      event.preventDefault();
+      if (state.data) render();
+      announce('이 상품의 최근 가격 비교가 만료되었습니다. 목록을 새로고침해 주세요.');
+    });
+    return link;
+  }
+
   function productCard(item) {
     const article = node('article', 'product-card');
-    const imageButton = node('button', 'product-image-button');
-    imageButton.type = 'button';
-    imageButton.setAttribute('aria-label', `${item.title}, 가격 기록 보기`);
-    addImage(imageButton, item);
-    imageButton.addEventListener('click', () => openProduct(item));
+    const product = affiliateLink(item, 'product-link') || node('div', 'product-link');
+    const image = node('span', 'product-image');
+    addImage(image, item);
     const info = node('div', 'product-info');
     info.append(node('p', 'product-category', categoryName(item)));
-    const heading = node('h2', 'product-title');
-    const titleButton = node('button', '', item.title);
-    titleButton.type = 'button';
-    titleButton.addEventListener('click', () => openProduct(item));
-    heading.append(titleButton);
+    const heading = node('h2', 'product-title', item.title);
     const price = node('p', 'product-price', nf.format(Math.round(item.currentPrice)));
     price.setAttribute('aria-label', `최근 관측가 ${won(item.currentPrice)}`);
     price.append(node('small', '', '원'));
@@ -187,8 +198,9 @@
     button.setAttribute('aria-label', `${item.title} 가격 기록 보기`);
     button.addEventListener('click', () => openProduct(item));
     bottom.append(time, button);
-    info.append(heading, price, drop, period, bottom);
-    article.append(imageButton, info);
+    info.append(heading, price, drop, period);
+    product.append(image, info);
+    article.append(product, bottom);
     return article;
   }
 
@@ -440,19 +452,8 @@
       content.append(details);
     }
     const footer = node('div', 'detail-footer');
-    const link = item.linkVerified === true ? safeURL(item.affiliateUrl, 'affiliate') : null;
-    if (link) {
-      const buy = node('a', 'buy-link', '쿠팡에서 상품 확인 ↗');
-      buy.href = link.href;
-      buy.target = '_blank';
-      buy.rel = 'noopener noreferrer sponsored';
-      buy.setAttribute('aria-label', '쿠팡에서 상품 확인, 새 창으로 열림');
-      buy.addEventListener('click', event => {
-        if (normaliseItems([item]).length) return;
-        event.preventDefault();
-        if (state.data) render();
-        announce('이 상품의 최근 가격 비교가 만료되었습니다. 목록을 새로고침해 주세요.');
-      });
+    const buy = affiliateLink(item, 'buy-link', '쿠팡에서 상품 확인 ↗');
+    if (buy) {
       footer.append(buy, node('p', 'affiliate-disclosure', '이 링크는 쿠팡 파트너스 활동의 일환으로, 구매 시 일정액의 수수료를 제공받을 수 있습니다. 구매 전 옵션과 최종 결제 금액을 확인해 주세요.'));
     } else footer.append(node('p', 'link-unavailable', '상품 이동 링크를 확인하고 있어요.'));
     content.append(footer);
