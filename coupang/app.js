@@ -5,6 +5,7 @@
   const DAY_MS = 86400000;
   const PERIODS = new Set(['1', '7', '30']);
   const SORTS = new Set(['rate', 'amount']);
+  const FILTER_STORAGE_KEY = 'coupang-shorthead.filters';
   const config = window.COUPANG_CONFIG || {};
   const $ = (selector, scope = document) => scope.querySelector(selector);
   const results = $('#results');
@@ -12,7 +13,7 @@
   const nf = new Intl.NumberFormat('ko-KR');
   const shortTime = new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Seoul', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' });
   const fullTime = new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Seoul', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' });
-  const state = { filters: readFilters(), data: null, items: [], controller: null, requestId: 0, lastFocus: null, selectedId: null, busy: false, expiryTimer: null };
+  const state = { filters: readFilters(true), data: null, items: [], controller: null, requestId: 0, lastFocus: null, selectedId: null, busy: false, expiryTimer: null };
 
   function node(tag, className, text) {
     const el = document.createElement(tag);
@@ -27,8 +28,25 @@
     return el;
   }
 
-  function readFilters() {
-    const q = new URLSearchParams(location.search);
+  function savedFilterParams() {
+    try {
+      return new URLSearchParams(window.localStorage.getItem(FILTER_STORAGE_KEY) || '');
+    } catch {
+      return new URLSearchParams();
+    }
+  }
+
+  function saveFilters(filters) {
+    try {
+      window.localStorage.setItem(FILTER_STORAGE_KEY, new URLSearchParams(filters).toString());
+    } catch {
+      // Filters still work through the URL when storage is unavailable.
+    }
+  }
+
+  function readFilters(restoreSaved = false) {
+    let q = new URLSearchParams(location.search);
+    if (restoreSaved && !['period', 'sort', 'category'].some(key => q.has(key))) q = savedFilterParams();
     const category = q.get('category') || 'all';
     return { period: PERIODS.has(q.get('period')) ? q.get('period') : '1', sort: SORTS.has(q.get('sort')) ? q.get('sort') : 'rate', category: /^[a-zA-Z0-9_-]{1,64}$/.test(category) ? category : 'all' };
   }
@@ -120,13 +138,20 @@
     });
     select.replaceChildren(new Option('전체 카테고리', 'all'));
     unique.forEach((name, id) => select.add(new Option(name, id)));
-    if (state.filters.category !== 'all' && !unique.has(state.filters.category)) {
-      state.filters.category = 'all';
-      syncURL(true);
-      return false;
-    }
+    if (state.filters.category !== 'all' && !unique.has(state.filters.category)) return false;
     select.value = state.filters.category;
     return true;
+  }
+
+  function resetUnavailableCategory() {
+    const saved = savedFilterParams();
+    if (saved.get('category') === state.filters.category) {
+      saved.set('category', 'all');
+      saveFilters(saved);
+    }
+    state.filters.category = 'all';
+    syncURL(true);
+    load();
   }
 
   function categoryName(item) {
@@ -301,12 +326,18 @@
       Object.entries(state.filters).forEach(([key, value]) => endpoint.searchParams.set(key, value));
       timeout = setTimeout(() => controller.abort(), 20000);
       const response = await fetch(endpoint.href, { signal: controller.signal, mode: 'cors', credentials: 'omit', headers: { Accept: 'application/json' } });
-      if (!response.ok) throw new Error('response-unavailable');
       const data = await response.json();
       if (requestId !== state.requestId) return;
+      if (!response.ok) {
+        if (response.status === 400 && state.filters.category !== 'all' && ['unknown_category', 'invalid_filters'].includes(data?.error)) {
+          resetUnavailableCategory();
+          return;
+        }
+        throw new Error('response-unavailable');
+      }
       if (!data || !Array.isArray(data.items) || !Array.isArray(data.categories)) throw new Error('response-invalid');
       state.data = data;
-      if (!updateCategories(data.categories)) { syncControls(); load(); return; }
+      if (!updateCategories(data.categories)) { resetUnavailableCategory(); return; }
       syncControls();
       render();
     } catch {
@@ -329,6 +360,7 @@
   function setFilters(next) {
     if (dialog.open) dialog.close();
     state.filters = { ...state.filters, ...next };
+    saveFilters(state.filters);
     syncURL();
     load();
   }
