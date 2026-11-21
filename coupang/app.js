@@ -8,6 +8,8 @@
   const config = window.COUPANG_CONFIG || {};
   const $ = (selector, scope = document) => scope.querySelector(selector);
   const results = $('#results');
+  const loadingGrid = $('.loading-grid', results);
+  const skeletonCard = loadingGrid.firstElementChild;
   const dialog = $('#product-dialog');
   const nf = new Intl.NumberFormat('ko-KR');
   const shortTime = new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Seoul', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' });
@@ -226,12 +228,34 @@
     return article;
   }
 
+  function fillInitialSkeleton() {
+    const grid = loadingGrid.getBoundingClientRect();
+    if (grid.bottom >= window.innerHeight) return;
+    const cardHeight = skeletonCard.getBoundingClientRect().height;
+    if (!cardHeight) return;
+    const layout = getComputedStyle(loadingGrid);
+    const columns = layout.gridTemplateColumns.split(' ').length;
+    const rowGap = parseFloat(layout.rowGap);
+    const rows = Math.ceil((window.innerHeight - grid.top + rowGap) / (cardHeight + rowGap));
+    const count = Math.min(100, rows * columns);
+    for (let i = loadingGrid.childElementCount; i < count; i++) loadingGrid.append(skeletonCard.cloneNode(true));
+  }
+
   function renderLoading() {
     clearTimeout(state.expiryTimer);
     state.expiryTimer = null;
+    if (results.classList.contains('initial-loading')) {
+      fillInitialSkeleton();
+    } else if (results.firstElementChild !== loadingGrid) {
+      const previousCount = results.querySelectorAll('.product-card').length;
+      results.style.minHeight = `${results.getBoundingClientRect().height}px`;
+      results.classList.add('reloading-list');
+      const count = previousCount || 1;
+      loadingGrid.replaceChildren(...Array.from({ length: count }, () => skeletonCard.cloneNode(true)));
+      results.replaceChildren(loadingGrid);
+    }
     results.setAttribute('aria-busy', 'true');
     $('#refresh-button').disabled = true;
-    results.replaceChildren(node('p', '', '상품 목록을 불러오는 중입니다.'));
     $('#result-count').textContent = '—';
     announce('선택한 조건의 가격 기록을 불러오고 있습니다.');
   }
@@ -349,6 +373,8 @@
       clearTimeout(timeout);
       if (requestId === state.requestId) {
         state.busy = false;
+        results.classList.remove('initial-loading', 'reloading-list');
+        results.style.removeProperty('min-height');
         results.setAttribute('aria-busy', 'false');
         $('#refresh-button').disabled = false;
       }
