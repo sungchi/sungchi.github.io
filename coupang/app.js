@@ -1,9 +1,8 @@
 (() => {
   'use strict';
 
-  const MAX_AGE_MS = 36 * 60 * 60 * 1000;
   const DAY_MS = 86400000;
-  const PERIODS = new Set(['1', '7', '30']);
+  const KST_OFFSET_MS = 9 * 60 * 60 * 1000;
   const SORTS = new Set(['rate', 'amount']);
   const FILTER_STORAGE_KEY = 'coupang-shorthead.filters';
   const config = window.COUPANG_CONFIG || {};
@@ -48,23 +47,20 @@
     let q = new URLSearchParams(location.search);
     if (restoreSaved && !['period', 'sort', 'category'].some(key => q.has(key))) q = savedFilterParams();
     const category = q.get('category') || 'all';
-    return { period: PERIODS.has(q.get('period')) ? q.get('period') : '1', sort: SORTS.has(q.get('sort')) ? q.get('sort') : 'rate', category: /^[a-zA-Z0-9_-]{1,64}$/.test(category) ? category : 'all' };
+    return { sort: SORTS.has(q.get('sort')) ? q.get('sort') : 'rate', category: /^[a-zA-Z0-9_-]{1,64}$/.test(category) ? category : 'all' };
   }
 
   function syncURL(replace = false) {
     const url = new URL(location.href);
     url.search = '';
-    url.searchParams.set('period', state.filters.period);
     url.searchParams.set('sort', state.filters.sort);
     if (state.filters.category !== 'all') url.searchParams.set('category', state.filters.category);
     if (url.href !== location.href) history[replace ? 'replaceState' : 'pushState']({}, '', url);
   }
 
   function syncControls() {
-    document.querySelectorAll('[data-period]').forEach(el => el.setAttribute('aria-pressed', String(el.dataset.period === state.filters.period)));
     document.querySelectorAll('[data-sort]').forEach(el => el.setAttribute('aria-pressed', String(el.dataset.sort === state.filters.sort)));
     $('#category-select').value = state.filters.category;
-    $('#filter-description').textContent = `${state.filters.period}일 전 대비 · ${state.filters.sort === 'rate' ? '하락률' : '하락 금액'}순`;
   }
 
   function safeURL(raw, type) {
@@ -102,21 +98,22 @@
   }
 
   function positive(value) { return typeof value === 'number' && Number.isSafeInteger(value) && value > 0; }
-  function won(value) { return `${nf.format(Math.round(value))}원`; }
+  function won(value) { return `${nf.format(value)}원`; }
   function percent(value) { return value < 0.05 ? '0.1% 미만' : `${value.toLocaleString('ko-KR', { maximumFractionDigits: 1, minimumFractionDigits: 0 })}%`; }
 
   function normaliseItems(items) {
     const seen = new Set();
-    const period = Number(state.filters.period);
     const now = Date.now();
+    const today = new Date(now + KST_OFFSET_MS).toISOString().slice(0, 10);
     return items.flatMap(item => {
       if (!item || typeof item !== 'object' || typeof item.id !== 'string' || seen.has(item.id)) return [];
-      const d = dateNumber(item.currentDate);
-      const b = dateNumber(item.baselineDate);
       const observed = typeof item.observedAt === 'string' ? Date.parse(item.observedAt) : NaN;
       const expires = typeof item.expiresAt === 'string' ? Date.parse(item.expiresAt) : NaN;
-      if (Number.isFinite(observed) && new Date(observed + 9 * 60 * 60 * 1000).toISOString().slice(0, 10) !== item.currentDate) return [];
-      if (!positive(item.currentPrice) || !positive(item.baselinePrice) || d === null || b === null || d - b !== period * DAY_MS || !Number.isFinite(observed) || !Number.isFinite(expires) || expires < now || observed > now + 300000 || now - observed > MAX_AGE_MS) return [];
+      if (item.currentDate !== today || !Number.isFinite(observed) || observed > now + 300000 || !Number.isFinite(expires) || expires <= now) return [];
+      if (new Date(observed + KST_OFFSET_MS).toISOString().slice(0, 10) !== today) return [];
+      const median = item.baselinePrice;
+      if (!positive(item.currentPrice) || !positive(item.baselineDays) || item.baselineDays < 3) return [];
+      if (!Number.isFinite(median) || median <= 0 || median > Number.MAX_SAFE_INTEGER || median % 0.5 !== 0) return [];
       const amount = item.baselinePrice - item.currentPrice;
       if (amount <= 0) return [];
       const categoryIds = Array.isArray(item.categoryIds) ? item.categoryIds.filter(id => typeof id === 'string') : [];
@@ -208,13 +205,13 @@
     info.append(node('p', 'product-category', categoryName(item)));
     const heading = node('h2', 'product-title', item.title);
     const price = node('p', 'product-price', nf.format(Math.round(item.currentPrice)));
-    price.setAttribute('aria-label', `최근 관측가 ${won(item.currentPrice)}`);
+    price.setAttribute('aria-label', `오늘 확인한 가격 ${won(item.currentPrice)}`);
     price.append(node('small', '', '원'));
     const drop = node('p', 'drop-values');
     const main = state.filters.sort === 'rate' ? `${percent(item.dropPercent)} 하락` : `${won(item.dropAmount)} 낮음`;
     const secondary = state.filters.sort === 'rate' ? `${won(item.dropAmount)} 낮음` : `${percent(item.dropPercent)} 하락`;
     drop.append(node('strong', '', `↓ ${main}`), node('span', '', secondary));
-    const period = node('p', 'compare-period', `${dateLabel(item.baselineDate)} → ${dateLabel(item.currentDate)}`);
+    const baseline = node('p', 'compare-baseline', `과거 ${nf.format(item.baselineDays)}일치 중앙값 ${won(item.baselinePrice)} 대비`);
     const bottom = node('div', 'product-date');
     const time = node('time', '', `${timeLabel(item.observedAt)} 확인`);
     time.dateTime = item.observedAt;
@@ -223,7 +220,7 @@
     button.setAttribute('aria-label', `${item.title} 가격 기록 보기`);
     button.addEventListener('click', () => openProduct(item));
     bottom.append(time, button);
-    info.append(heading, price, drop, period);
+    info.append(heading, price, drop, baseline);
     product.append(image, info);
     article.append(product, bottom);
     return article;
@@ -246,17 +243,17 @@
     const tracked = Number.isSafeInteger(status.trackedProducts) && status.trackedProducts > 0 ? status.trackedProducts : 0;
     const panel = node('div', 'state-panel');
     panel.append(node('h3', '', ready ? '조건에 맞는 가격 하락이 없어요' : collecting && tracked ? '비교할 가격 기록을 모으고 있어요' : '가격 기록을 준비하고 있어요'));
-    panel.append(node('p', '', ready ? `${state.filters.period}일 전 기록과 비교할 수 있고 가격이 내려간 상품이 아직 없어요. 다른 기간이나 카테고리도 살펴보세요.` : '이전 날짜의 기록이 쌓이면 가격이 내려간 상품을 보여드립니다.'));
+    panel.append(node('p', '', ready ? '오늘 확인한 가격이 과거 기록의 중앙값보다 낮은 상품이 아직 없어요.' : '오늘 가격과 이전 3일 이상의 가격 기록이 모이면 중앙값보다 저렴한 상품을 보여드려요.'));
     if (tracked) {
       const meta = node('p', 'state-meta');
       meta.append(node('span', 'status-dot'), node('span', '', `${nf.format(tracked)}개 상품 기록 중`));
       panel.append(meta);
     }
     const actions = node('div', 'state-actions');
-    if (ready && (state.filters.period !== '1' || state.filters.category !== 'all')) {
-      const reset = node('button', 'text-button', '전체 · 1일 전으로 보기');
+    if (ready && state.filters.category !== 'all') {
+      const reset = node('button', 'text-button', '전체 카테고리 보기');
       reset.type = 'button';
-      reset.addEventListener('click', () => setFilters({ period: '1', category: 'all', sort: 'rate' }));
+      reset.addEventListener('click', () => setFilters({ category: 'all' }));
       actions.append(reset);
     }
     panel.append(actions);
@@ -282,11 +279,12 @@
     clearTimeout(state.expiryTimer);
     state.expiryTimer = null;
     if (!state.items.length) return;
-    const next = Math.min(...state.items.map(item => Math.min(Date.parse(item.expiresAt), Date.parse(item.observedAt) + MAX_AGE_MS)));
+    const midnight = dateNumber(state.items[0].currentDate) + DAY_MS - KST_OFFSET_MS;
+    const next = Math.min(midnight, ...state.items.map(item => Date.parse(item.expiresAt)));
     state.expiryTimer = setTimeout(() => {
       state.expiryTimer = null;
       if (state.data && !state.busy) render();
-    }, Math.max(1, next - Date.now() + 1));
+    }, Math.max(1, next - Date.now()));
   }
 
   function render() {
@@ -299,7 +297,7 @@
       state.items.forEach(item => grid.append(productCard(item)));
       results.replaceChildren(grid);
     } else renderEmpty();
-    announce(`${state.filters.period}일 전 기록 대비 ${state.filters.sort === 'rate' ? '하락률' : '하락 금액'}순, ${state.items.length}개 상품을 표시합니다.`);
+    announce(`과거 가격 중앙값 대비 ${state.filters.sort === 'rate' ? '하락률' : '하락 금액'}순, ${state.items.length}개 상품을 표시합니다.`);
     if (dialog.open && !state.items.some(item => item.id === state.selectedId)) {
       dialog.close();
       announce('선택한 상품의 최근 가격 비교가 만료되었습니다. 현재 목록을 다시 확인해 주세요.');
@@ -335,7 +333,7 @@
         }
         throw new Error('response-unavailable');
       }
-      if (!data || !Array.isArray(data.items) || !Array.isArray(data.categories)) throw new Error('response-invalid');
+      if (data?.version !== 2 || data.comparison !== 'median' || !Array.isArray(data.items) || !Array.isArray(data.categories)) throw new Error('response-invalid');
       state.data = data;
       if (!updateCategories(data.categories)) { resetUnavailableCategory(); return; }
       syncControls();
@@ -378,7 +376,7 @@
       records.set(entry.date, { date: entry.date, price: valid ? entry.priceKrw : null, status: valid ? '기록 있음' : entry.status === 'missing' ? '관측 없음' : '비교 보류' });
     });
     if (!records.size) return [];
-    const first = Math.min(...Array.from(records.keys()).map(dateNumber), dateNumber(item.baselineDate));
+    const first = Math.min(...Array.from(records.keys()).map(dateNumber));
     const rows = [];
     for (let day = Math.max(start, first); day <= end; day += DAY_MS) {
       const date = new Date(day).toISOString().slice(0, 10);
@@ -446,23 +444,23 @@
     const copy = node('div');
     const title = node('h2', 'detail-title', item.title);
     title.id = 'dialog-title';
-    copy.append(node('p', 'detail-category', categoryName(item)), title, node('p', 'detail-dates', `${dateLabel(item.baselineDate, true)} → ${dateLabel(item.currentDate, true)}`));
+    copy.append(node('p', 'detail-category', categoryName(item)), title);
     top.append(imageBox, copy);
     const comparison = node('div', 'comparison-box');
     const before = node('div');
-    before.append(node('small', '', `${state.filters.period}일 전 기록 가격`), node('b', '', won(item.baselinePrice)), node('span', '', dateLabel(item.baselineDate)));
+    before.append(node('small', '', '과거 가격 중앙값'), node('b', '', won(item.baselinePrice)), node('span', '', `오늘 제외 · ${nf.format(item.baselineDays)}일치 기록`));
     const after = node('div');
-    after.append(node('small', '', '최근 관측가'), node('b', '', won(item.currentPrice)), node('span', '', dateLabel(item.currentDate)));
+    after.append(node('small', '', '오늘 확인한 가격'), node('b', '', won(item.currentPrice)), node('span', '', dateLabel(item.currentDate, true)));
     const arrow = node('span', 'comparison-arrow', '→');
     arrow.setAttribute('aria-hidden', 'true');
     comparison.append(before, arrow, after);
-    const savings = node('p', 'detail-savings', `${state.filters.period}일 전 기록보다 ${won(item.dropAmount)} 낮음 · ${percent(item.dropPercent)} 하락`);
+    const savings = node('p', 'detail-savings', `중앙값보다 ${won(item.dropAmount)} 낮음 · ${percent(item.dropPercent)} 하락`);
     const observed = node('p', 'detail-observed', `마지막 확인 ${timeLabel(item.observedAt, true)} · 한국시간`);
     const heading = node('div', 'chart-heading');
-    heading.append(node('h3', '', '날짜별 가격 기록'), node('span', '', '단위: 원 · 하루 마지막 관측가'));
+    heading.append(node('h3', '', '최근 31일 가격 기록'), node('span', '', '하루 마지막 확인 가격 (원)'));
     const rows = historyRows(item);
-    const chart = rows.length ? historyChart(rows) : node('p', 'history-empty', '상세 가격 기록을 준비하고 있어요. 위에서 비교한 두 날짜의 가격을 확인해 주세요.');
-    const caption = node('p', 'chart-caption', '기록이 없는 날짜는 선으로 잇지 않습니다. 이 기록은 그날 하루 종일 유지된 가격이나 기간 최저가를 뜻하지 않습니다.');
+    const chart = rows.length ? historyChart(rows) : node('p', 'history-empty', '날짜별 가격 기록을 준비하고 있어요.');
+    const caption = node('p', 'chart-caption', '중앙값은 오늘 이전의 전체 기록으로 계산합니다. 그래프에서 선이 끊긴 날짜는 가격을 비교할 기록이 없는 날입니다.');
     content.replaceChildren(top, comparison, savings, observed, heading, chart, caption);
     if (rows.length) {
       const details = node('details', 'history-table-details');
@@ -503,7 +501,6 @@
     if (item) chart.replaceWith(historyChart(historyRows(item)));
   }).observe($('#dialog-content'));
 
-  document.querySelectorAll('[data-period]').forEach(button => button.addEventListener('click', () => { if (button.dataset.period !== state.filters.period) setFilters({ period: button.dataset.period }); }));
   document.querySelectorAll('[data-sort]').forEach(button => button.addEventListener('click', () => { if (button.dataset.sort !== state.filters.sort) setFilters({ sort: button.dataset.sort }); }));
   $('#category-select').addEventListener('change', event => setFilters({ category: event.target.value }));
   $('#refresh-button').addEventListener('click', load);

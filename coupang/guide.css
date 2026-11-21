@@ -21,20 +21,3 @@
 .guide-section-number {
   display: none;
 }
-.guide-table-scroll {
-  overflow-x: auto;
-}
-.guide-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-.guide-table th,
-.guide-table td {
-  padding: .6em;
-  border-bottom: 1px solid #ddd;
-  text-align: left;
-  white-space: nowrap;
-}
-.guide-table caption {
-  text-align: left;
-}
