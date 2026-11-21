@@ -47,7 +47,7 @@
     let q = new URLSearchParams(location.search);
     if (restoreSaved && !['period', 'sort', 'category'].some(key => q.has(key))) q = savedFilterParams();
     const category = q.get('category') || 'all';
-    return { sort: SORTS.has(q.get('sort')) ? q.get('sort') : 'rate', category: /^[a-zA-Z0-9_-]{1,64}$/.test(category) ? category : 'all' };
+    return { sort: SORTS.has(q.get('sort')) ? q.get('sort') : 'amount', category: /^[a-zA-Z0-9_-]{1,64}$/.test(category) ? category : 'all' };
   }
 
   function syncURL(replace = false) {

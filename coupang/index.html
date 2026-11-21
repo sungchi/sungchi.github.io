@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="color-scheme" content="light">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; img-src 'self' https://*.coupangcdn.com https://*.coupang.com data: https://www.googletagmanager.com https://*.google-analytics.com; connect-src 'self' https://lveuekjktmkmvlxzkoai.supabase.co http://127.0.0.1:* http://localhost:* https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com; base-uri 'self'; object-src 'none'; form-action 'none'">
-  <meta name="description" content="오늘 확인한 쿠팡 상품 가격을 이전 3일 이상 기록한 가격의 중앙값과 비교합니다. 중앙값보다 저렴한 상품을 하락률순이나 하락 금액순으로 살펴보세요.">
+  <meta name="description" content="오늘 확인한 쿠팡 상품 가격을 이전 3일 이상 기록한 가격의 중앙값과 비교합니다. 중앙값보다 저렴한 상품을 하락 금액순이나 하락률순으로 살펴보세요.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="쿠팡 가격 변동·하락률 비교 | 빠른 쿠팡 홈">
   <meta property="og:description" content="오늘 가격이 과거 가격 중앙값보다 얼마나 낮은지 상품별로 확인하세요.">
@@ -26,7 +26,7 @@
   <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png?v=1cfd6a404dcf" sizes="180x180">
   <link rel="stylesheet" href="./styles.css?v=75c6bc184509">
   <script src="./config.js" defer></script>
-  <script src="./app.js?v=a638e1823a95" defer></script>
+  <script src="./app.js?v=ab7c9849c8d1" defer></script>
   <title>쿠팡 가격 변동·하락률 비교 | 빠른 쿠팡 홈</title>
   <script src="./analytics.js?v=58aefc7c1a8b" defer></script>
 </head>
@@ -52,7 +52,7 @@
 
       <div class="filters" aria-label="가격 목록 조건">
         <label class="category-filter" for="category-select"><span class="sr-only">카테고리</span><select id="category-select"><option value="all">전체 카테고리</option></select></label>
-        <fieldset class="sort-filter"><legend class="sr-only">정렬 기준</legend><button type="button" data-sort="rate" aria-pressed="true">하락률순</button><button type="button" data-sort="amount" aria-pressed="false">하락 금액순</button></fieldset>
+        <fieldset class="sort-filter"><legend class="sr-only">정렬 기준</legend><button type="button" data-sort="amount" aria-pressed="true">하락 금액순</button><button type="button" data-sort="rate" aria-pressed="false">하락률순</button></fieldset>
       </div>
       <div class="results-description"><p id="filter-description">오늘 가격이 과거 3일 이상 기록한 가격의 중앙값보다 낮은 상품</p><span>최대 100개</span></div>
       <div id="results" aria-busy="true" aria-describedby="filter-description"></div>
