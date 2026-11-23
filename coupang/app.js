@@ -189,12 +189,18 @@
     link.target = '_blank';
     link.rel = 'noopener noreferrer sponsored';
     link.setAttribute('aria-label', `${item.title}, 쿠팡에서 상품 확인, 새 창으로 열림`);
-    link.addEventListener('click', event => {
-      if (normaliseItems([item]).length) return;
+    function onActivate(event) {
+      if (event.defaultPrevented || (event.type === 'auxclick' && event.button !== 1)) return;
+      if (normaliseItems([item]).length) {
+        window.oaiq?.('measure', 'page_viewed', { type: 'contents' });
+        return;
+      }
       event.preventDefault();
       if (state.data) render();
       announce('이 상품의 최근 가격 비교가 만료되었습니다. 목록을 새로고침해 주세요.');
-    });
+    }
+    link.addEventListener('click', onActivate);
+    link.addEventListener('auxclick', onActivate);
     return link;
   }
 
