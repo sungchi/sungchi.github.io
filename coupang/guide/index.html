@@ -4,7 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#ffffff">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com; base-uri 'self'; object-src 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-kfw4GX3YidQsywBzcscZ3pYB6Zf9V/iu1srbk900+R0=' https://bzrcdn.openai.com https://www.googletagmanager.com; style-src 'self'; img-src 'self' https://bzr.openai.com data: https://www.googletagmanager.com https://*.google-analytics.com; connect-src 'self' https://bzr.openai.com https://bzrcdn.openai.com https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com; base-uri 'self'; object-src 'none'; form-action 'none'">
+  <script>
+    if (location.origin === "https://plan9.kr") {
+      (function (w, d, s, u) {
+        if (w.oaiq) return;
+        var q = function () { q.q.push(arguments); };
+        q.q = [];
+        w.oaiq = q;
+        var j = d.createElement(s);
+        j.async = true;
+        j.src = u;
+        var f = d.getElementsByTagName(s)[0];
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "https://bzrcdn.openai.com/sdk/oaiq.min.js");
+      oaiq("init", { pixelId: "UsmoDm8uJnyr18bKTVxdDk", debug: true });
+    }
+  </script>
   <title>쿠팡 가격 변동 확인 방법 · 가격 중앙값과 하락률 | 빠른 쿠팡 홈</title>
   <meta name="description" content="같은 상품·옵션의 오늘 가격을 과거 3일 이상 쌓인 기록의 중앙값과 비교합니다. 하락 금액순 목록과 최근 31일 가격 그래프를 예시로 읽어 보세요.">
   <meta name="robots" content="index,follow">

@@ -5,7 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#ffffff">
   <meta name="color-scheme" content="light">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; img-src 'self' https://*.coupangcdn.com https://*.coupang.com data: https://www.googletagmanager.com https://*.google-analytics.com; connect-src 'self' https://lveuekjktmkmvlxzkoai.supabase.co http://127.0.0.1:* http://localhost:* https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com; base-uri 'self'; object-src 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-kfw4GX3YidQsywBzcscZ3pYB6Zf9V/iu1srbk900+R0=' https://bzrcdn.openai.com https://www.googletagmanager.com; style-src 'self'; img-src 'self' https://bzr.openai.com https://*.coupangcdn.com https://*.coupang.com data: https://www.googletagmanager.com https://*.google-analytics.com; connect-src 'self' https://bzr.openai.com https://bzrcdn.openai.com https://lveuekjktmkmvlxzkoai.supabase.co http://127.0.0.1:* http://localhost:* https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com; base-uri 'self'; object-src 'none'; form-action 'none'">
+  <script>
+    if (location.origin === "https://plan9.kr") {
+      (function (w, d, s, u) {
+        if (w.oaiq) return;
+        var q = function () { q.q.push(arguments); };
+        q.q = [];
+        w.oaiq = q;
+        var j = d.createElement(s);
+        j.async = true;
+        j.src = u;
+        var f = d.getElementsByTagName(s)[0];
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "https://bzrcdn.openai.com/sdk/oaiq.min.js");
+      oaiq("init", { pixelId: "UsmoDm8uJnyr18bKTVxdDk", debug: true });
+    }
+  </script>
   <meta name="description" content="오늘 확인한 쿠팡 상품 가격을 이전 3일 이상 기록한 가격의 중앙값과 비교합니다. 중앙값보다 저렴한 상품을 하락 금액순이나 하락률순으로 살펴보세요.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="오늘 가격이 내려간 상품 | 빠른 쿠팡 홈">
